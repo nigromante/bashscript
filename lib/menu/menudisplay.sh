@@ -45,7 +45,7 @@ menudisplay_content() {
         currItem="${narr[$i]}"
 
         if [[ $i == $selectedIndex ]]; then
-            print "${BORDER}${VERTICAL_SELECT}${ICON_SELECTED}  ᐅ  ${TEXT_SELECTED} ${currItem} ${BORDER}${VERTICAL_SELECT}${RESET}"
+            print "${BORDER}${VERTICAL_SELECT}${ICON_SELECTED}  ${MARK}  ${TEXT_SELECTED} ${currItem} ${BORDER}${VERTICAL_SELECT}${RESET}"
         else
             print "${BORDER}${VERTICAL}     ${TEXT_NORMAL} ${currItem} ${BORDER}${VERTICAL}${RESET}"
         fi
