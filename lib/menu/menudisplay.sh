@@ -9,8 +9,8 @@ menudisplay_prepare() {
     titulo2=$(unescape "$titulo2")
     bottom="$(mklinea "$titulo2")"
 
-    titulo="$(replaceChar "$titulo" "-" "${HORIZONTAL}")"
-    bottom="$(replaceChar "$bottom" "-" "${HORIZONTAL}")"
+    titulo="$(strreplace "$titulo" "-" "${HORIZONTAL}")"
+    bottom="$(strreplace "$bottom" "-" "${HORIZONTAL}")"
 
     if [[ 0 -lt $labelsLength ]]; then
       normalizeList "labelItems" "$titulo2"

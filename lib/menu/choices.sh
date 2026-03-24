@@ -5,6 +5,7 @@
 choices() {
   choices_args_trace $@
   choices_args $@
+  choices_info
   if [[ "${ret}" == "true" ]]; then
     choices_run
   fi
@@ -193,6 +194,11 @@ choices_themeshape_list() {
 choices_run() {
 
     choices_menu_loader
+    choices_menu_run
+}
+
+# ------------------------------------ INFO
+choices_info() {
 
     if [[ $verbose == true ]]; then 
       echo
@@ -208,7 +214,5 @@ choices_run() {
       trace_list "labelItems"
       trace_list "remainingArgs"
     fi
-
-    choices_menu_run
 }
 
