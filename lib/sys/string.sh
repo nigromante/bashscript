@@ -24,3 +24,15 @@ padcenter() {
   echo "$str2" 
 }
 
+#  str=$( strupper "Julian Vidal")
+strupper() {
+  str="$1"
+  echo "${str^^}"
+}
+
+#  str=$( strlower "Julian Vidal")
+strlower() {
+  str="$1"
+  echo "${str,,}"
+}
+
