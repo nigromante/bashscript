@@ -1,6 +1,5 @@
 #!/bin/bash
 
-LIBPATH="$(pwd)/../lib"
 source ${LIBPATH}/loader.sh
 
 str_in_1="julian"

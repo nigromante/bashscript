@@ -1,6 +1,5 @@
 #!/bin/bash
 
-LIBPATH="$(pwd)/../lib"
 source ${LIBPATH}/loader_user.sh
 
 init() {

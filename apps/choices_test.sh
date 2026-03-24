@@ -1,6 +1,5 @@
 #!/bin/bash
 
-LIBPATH="$(pwd)/../lib"
 source ${LIBPATH}/loader.sh
 
 source choices_test_list.sh
