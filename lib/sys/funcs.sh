@@ -71,3 +71,26 @@ normalizeList() {
     narr+=("$currItem")
   done
 }
+
+
+padright() {
+  texto="$1"
+  len=$2
+  echo "$( printf '%*s' $len "$texto" )"
+}
+
+padleft() {
+  texto="$1"
+  len=$2
+  echo "$( printf '%-*s' $len "$texto" )"
+}
+
+padcenter() {
+  texto="$1"
+  len=$2
+  resto=$(( ($len + ${#texto}) / 2 ))
+  str1=$( padright "$texto" $resto ) 
+  str2=$( padleft  "$str1"  $len ) 
+  echo "$str2" 
+}
+
