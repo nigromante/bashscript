@@ -1,6 +1,8 @@
 
 
 source ./env.sh
-cd ./tests/functions.sh
+
+cd ./tests
+./functions.sh
 
 
