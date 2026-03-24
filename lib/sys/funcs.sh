@@ -20,8 +20,8 @@ mklinea() {
 }
 
 normalizeList() {
-  size=$( getSize "$1" )
-  length=$( getLongest "$1" )
+  size=$( arrayGetSize "$1" )
+  length=$( arrayGetLongest "$1" )
   titlength="${#2}"
   if [[ $length < $titlength ]]; then
     length=$(( $titlength - 12 ))
@@ -39,3 +39,4 @@ normalizeList() {
     narr+=("$currItem")
   done
 }
+

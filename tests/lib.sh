@@ -2,7 +2,10 @@
 
 source ${LIBPATH}/loader.sh
 
-echo "List of all functions:"
+clear
+echo "path: " $LIBPATH
+echo
+echo "functions :"
 compgen -A function
 echo
 

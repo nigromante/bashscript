@@ -210,9 +210,9 @@ choices_info() {
       echo -e "\t inputName     : " "$inputName"
       echo -e "\t result        : " "$result"
       echo -e "\t selectedIndex : " "$selectedIndex"
-      trace_list "menuItems"
-      trace_list "labelItems"
-      trace_list "remainingArgs"
+      arrayTrace "menuItems"
+      arrayTrace  "labelItems"
+      arrayTrace "remainingArgs"
     fi
 }
 

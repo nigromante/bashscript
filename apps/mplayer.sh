@@ -1,6 +1,7 @@
 #!/bin/bash
 
 source ${LIBPATH}/loader_user.sh
+source ${LIBTPATH}/loader.sh
 
 init() {
     setAuthor       "JULIAN VIDAL A"
