@@ -1,4 +1,4 @@
 #!/bin/bash
 
-source ${MODULE}/prueba.sh
-source ${MODULE}/prueba2.sh
+moduleLoadFile "prueba.sh"
+moduleLoadFile "prueba2.sh"

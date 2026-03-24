@@ -1,3 +1,3 @@
 #!/bin/bash
 
-source ${MODULE}/prueba.sh
+moduleLoadFile "prueba.sh"

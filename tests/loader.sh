@@ -3,8 +3,14 @@
 
 source ${LIBPATH}/_loader.sh
 
-loadModule "tools"
-loadModule "tools2"
+loader_manager() {
+    moduleVerbose
+
+    moduleLoad "tools"
+    moduleLoad "tools2"
+
+    moduleList
+}
 
 main() {
     pruebaFn
@@ -12,5 +18,7 @@ main() {
     prueba2Fn2
 }
 
+clear
+loader_manager
 main
 echo "--- FIN ---"
