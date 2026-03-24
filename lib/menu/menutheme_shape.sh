@@ -5,6 +5,11 @@ menutheme_shape_config() {
 }
 
 
+menutheme_shape_getNames() {
+  echo "${menutheme_shape_names[@]}"
+}
+
+
 menutheme_shape_read() {
   menutheme_shape_config
   if [[ ! -a $CONFIG ]]; then

@@ -5,6 +5,11 @@ menutheme_color_config() {
 }
 
 
+menutheme_color_getNames() {
+  echo "${menutheme_color_names[@]}"
+}
+
+
 menutheme_color_read() {
   menutheme_color_config
   if [[ ! -a $CONFIG ]]; then

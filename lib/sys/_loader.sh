@@ -1,6 +1,8 @@
 #!/bin/bash
 
 source ${LIBPATH}/sys/const.sh
+source ${LIBPATH}/sys/string.sh
+source ${LIBPATH}/sys/array.sh
 source ${LIBPATH}/sys/vio.sh
 source ${LIBPATH}/sys/trap.sh
 source ${LIBPATH}/sys/keyboard.sh

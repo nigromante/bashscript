@@ -176,7 +176,7 @@ choices_themecolor_list() {
   echo
   echo "Theme Color List"
   echo
-  echo -e "\t${WARNING} ${menutheme_themes[@]} ${RESET}"
+  echo -e "\t${WARNING} $( menutheme_color_getNames ) ${RESET}"
   echo
 } 
 
@@ -185,7 +185,7 @@ choices_themeshape_list() {
   echo
   echo "Theme Shape List"
   echo
-  echo -e "\t${WARNING} ${menushape_shapes[@]} ${RESET}"
+  echo -e "\t${WARNING} $( menutheme_shape_getNames ) ${RESET}"
   echo
 } 
 
