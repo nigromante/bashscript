@@ -2,8 +2,6 @@
 
 start() {
 
-  # check_root 
-
   trap_hideCursor
 
   init

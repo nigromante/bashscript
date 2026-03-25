@@ -1,7 +1,18 @@
 #!/bin/bash
 
-source ${LIBPATH}/loader_user.sh
-source ${LIBTPATH}/loader.sh
+source ${LIBPATH}/_loader.sh
+
+loader_manager() {
+    moduleVerbose
+
+    moduleLoad "menu"
+    moduleLoad "user"
+    moduleLoad "sys"
+    moduleLoad "utils"
+
+    moduleList
+}
+
 
 init() {
     setAuthor       "JULIAN VIDAL A"
@@ -24,4 +35,5 @@ run() {
 
 }
 
+loader_manager
 start

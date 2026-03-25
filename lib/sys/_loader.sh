@@ -1,11 +1,11 @@
 #!/bin/bash
 
-source ${LIBPATH}/sys/const.sh
-source ${LIBPATH}/sys/string.sh
-source ${LIBPATH}/sys/array.sh
-source ${LIBPATH}/sys/vio.sh
-source ${LIBPATH}/sys/trap.sh
-source ${LIBPATH}/sys/keyboard.sh
-source ${LIBPATH}/sys/sys.sh
-source ${LIBPATH}/sys/funcs.sh
-source ${LIBPATH}/sys/net.sh
+moduleLoadFile "const.sh"
+moduleLoadFile "string.sh"
+moduleLoadFile "array.sh"
+moduleLoadFile "vio.sh"
+moduleLoadFile "trap.sh"
+moduleLoadFile "keyboard.sh"
+moduleLoadFile "sys.sh"
+moduleLoadFile "funcs.sh"
+moduleLoadFile "net.sh"

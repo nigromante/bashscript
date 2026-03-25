@@ -28,7 +28,7 @@ moduleLoad() {
     Modules["$1"]="$1"
     folder="${LIBPATH}/$1"
     export MODULE="$folder"
-    moduleLoadFile "loader.sh"
+    moduleLoadFile "_loader.sh"
 }
 
 

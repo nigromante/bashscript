@@ -1,5 +1,5 @@
 #!/bin/bash
 
-source ${LIBPATH}/sys/_loader.sh
-source ${LIBPATH}/menu/_loader.sh
+source ${LIBPATH}/sys/loader.sh
+source ${LIBPATH}/menu/loader.sh
 

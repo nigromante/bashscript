@@ -1,6 +1,15 @@
 #!/bin/bash
 
-source ${LIBPATH}/loader.sh
+source ${LIBPATH}/_loader.sh
+
+loader_manager() {
+    # moduleVerbose
+
+    moduleLoad "menu"
+    moduleLoad "sys"
+
+    moduleList
+}
 
 source choices_test_list.sh
 source choices_test_data.sh
@@ -63,4 +72,7 @@ check() {
   help
 }
 
+
+
+loader_manager
 check $@
