@@ -13,6 +13,12 @@ choices_test_themeshape_list() {
   choices -tsl
 }
 
+choices_test_includes() {
+    moduleVerbose
+    moduleList
+    moduleListFunctions
+}
+
 choices_test_no_args() {
   choices  
 }
@@ -96,6 +102,7 @@ choices_test_list() {
     "choices_test_help"
     "choices_test_themecolor_list"
     "choices_test_themeshape_list"
+    "choices_test_includes"
     "choices_test_no_args"
     "choices_test_vacio"
     "choices_test_unico"

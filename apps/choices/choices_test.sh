@@ -8,11 +8,10 @@ loader_manager() {
     moduleLoad "menu"
     moduleLoad "sys"
 
+    moduleLoadLocal "includes"
     moduleList
 }
 
-source choices_test_list.sh
-source choices_test_data.sh
 
 
 all() {
