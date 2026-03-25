@@ -1,6 +1,8 @@
 #!/bin/bash
 
 start() {
+  
+  clear
 
   check_root 
 

@@ -3,7 +3,7 @@
 #  -----------------------------------------------------------------------------
 # when need launch a app with root privileges
 #
-# sudo dont recognizes env variables  $LIBPATH is used to locate lib sources.
+# sudo dont recognizes env variables but $LIBPATH is required to locate lib sources.
 #
 # this script simplifies it:
 # example:

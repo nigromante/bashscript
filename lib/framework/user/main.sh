@@ -2,6 +2,8 @@
 
 start() {
 
+  clear
+  
   trap_hideCursor
 
   init
@@ -29,3 +31,4 @@ setTitle() {
 setDescription() {
   APP_DESCRIPTION="$1"
 }
+

@@ -9,6 +9,7 @@ loader_manager() {
     moduleLoad utils
 }
 
+
 init() {
     setAuthor       "JULIAN VIDAL A"
     setTitle        "Module Loader"
@@ -20,9 +21,7 @@ run() {
     moduleList
 }
 
-
 loader_manager
-
-clear
 start
+
 
