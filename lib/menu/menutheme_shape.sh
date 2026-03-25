@@ -1,7 +1,7 @@
 #!/bin/bash
 
 menutheme_shape_config() {
-  CONFIG="$(pwd)/$0.cfg.theme.shape"
+  CONFIG="$(pwd)/.config/theme.shape"
 }
 
 
