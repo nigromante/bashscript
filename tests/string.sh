@@ -1,6 +1,13 @@
 #!/bin/bash
 
-source ${LIBPATH}/loader.sh
+source ${LIBPATH}/_loader.sh
+
+loader_manager() {
+    # moduleVerbose
+    moduleLoad "sys"
+    moduleList
+}
+
 
 str_in_1="julian"
 str_in_2="vidal"
@@ -60,19 +67,24 @@ test10() {
 }
 
 
+
+
+
+main() {
+  test1
+  test2
+  test3
+  test4
+  test5
+  test6
+  test7
+  test8
+  test9
+  test10
+}
+
 clear
-
-test1
-test2
-test3
-test4
-test5
-test6
-test7
-test8
-test9
-test10
-
-echo
-echo
+loader_manager
+main
+echo "--- FIN ---"
 

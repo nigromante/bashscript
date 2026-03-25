@@ -1,10 +1,19 @@
 #!/bin/bash
 
-source ${LIBTPATH}/loader_user.sh
+source ${LIBPATH}/_loader.sh
+
+loader_manager() {
+    moduleVerbose
+    moduleLoad "sys"
+    moduleList
+}
+
+main() {
+    moduleListFunctions
+    echo "--- FIN ---"
+}
+
 
 clear
-echo "path: " $LIBTPATH
-echo
-echo "functions :"
-compgen -A function
-echo "message"
+loader_manager
+main

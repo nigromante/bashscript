@@ -1,8 +1,0 @@
-#!/bin/bash
-
-source ${LIBPATH}/loader.sh
-
-echo "List of all functions:"
-compgen -A function
-echo
-
