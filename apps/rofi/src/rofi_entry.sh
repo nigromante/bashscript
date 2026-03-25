@@ -9,15 +9,19 @@ init() {
 
 run() {
 
-    mplayer_devices
+    # mplayer_devices
+    # choices -o "mplayer_list" -vo "mplayer_device_selected" -T "Dispositivo\x20Webcam"
+    # if [[ "${mplayer_device_selected}" != "" ]]; then
+    #    mplayer_play_webcam ${mplayer_device_selected}
+    # fi
 
-    choices -o "mplayer_list" -vo "mplayer_device_selected" -T "Dispositivo\x20Webcam"
 
-    if [[ "${mplayer_device_selected}" != "" ]]; then
+    aopts_meses=("ene" "feb" "mar" "abr" "may" "jun" "jul" "ago" "sep" "oct" "nov" "dic")
+    albls_meses=("enero" "febrero" "marzo" "abril" "mayo" "junio" "julio" "agosto" "septiembre" "octubre" "noviembre" "diciembre")
 
-        mplayer_play_webcam ${mplayer_device_selected}
+    choices -o "aopts_meses" -l "albls_meses" -vo "salida" -T "Seleccione\x20Mes"
 
-    fi
+    echo "[${salida}]"
 
 }
 
