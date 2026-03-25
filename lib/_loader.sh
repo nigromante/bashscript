@@ -4,20 +4,6 @@ declare -A Modules
 declare moduleVerbose=false
 
 
-moduleVerbose() {
-    moduleVerbose=true
-}
-
-
-moduleList() {
-    if [[ $moduleVerbose == true ]]; then
-        echo
-        echo -e "\t Modulos cargados : " "${Modules[@]}"
-        echo
-    fi
-}
-
-
 moduleLoad() {
     if [[ -n "${Modules["$1"]}" ]]; then
         if [[ $moduleVerbose == true ]]; then
@@ -40,3 +26,26 @@ moduleLoadFile() {
     source  $file
 }
 
+
+moduleVerbose() {
+    moduleVerbose=true
+}
+
+
+moduleList() { 
+    if [[ $moduleVerbose == true ]]; then
+        echo
+        echo -e "\t Modulos cargados : " "${Modules[@]}"
+        echo
+    fi
+}
+
+
+moduleListFunctions() {
+    if [[ $moduleVerbose == true ]]; then
+        echo
+        echo "functions :"
+        compgen -A function
+        echo
+    fi
+}
