@@ -1,9 +1,17 @@
+## Usage:
+
+### Setting LIBPATH first
+
+&emsp;&emsp; cd apps/tests
+
+&emsp;&emsp; source ../env.sh
+
+&emsp;&emsp; ./string.sh
 
 
-source ./env.sh
 
-cd ./tests
+### Setting LIBPATH on fly
 
-./functions.sh
+&emsp;&emsp; cd apps/tests
 
-
+&emsp;&emsp; ../launch.sh ./string.sh
