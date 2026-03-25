@@ -3,6 +3,7 @@
 declare -a opciones2
 
 choices_menu_loader() {
+    opciones2=()
     title=$( echo -e "$title" )
     if [[ $labelsLength > 0 ]]; then
       for(( i=0 ; i < $itemsLength ; i++ )); do
