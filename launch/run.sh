@@ -8,10 +8,10 @@
 # this script simplifies it:
 # example:
 #     from apps folder
-#         sudo ./launch.sh ./tests/libtools.sh arg1 arg2
+#         sudo ../launch/run.sh ./tests/libtools.sh arg1 arg2
 #
 #     from tests folder
-#         sudo ../launch.sh ./libtools.sh arg1 arg2
+#         sudo ../../launch/run.sh ./libtools.sh arg1 arg2
 #  -----------------------------------------------------------------------------
 
 scriptdir() {
