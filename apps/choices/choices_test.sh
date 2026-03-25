@@ -3,13 +3,10 @@
 source ${LIBPATH}/_loader.sh
 
 loader_manager() {
-    # moduleVerbose
-
     moduleLoad "menu"
     moduleLoad "sys"
 
     moduleLoadLocal "includes"
-    moduleList
 }
 
 
