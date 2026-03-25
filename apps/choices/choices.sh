@@ -3,13 +3,10 @@
 source ${LIBPATH}/_loader.sh
 
 loader_manager() {
-    moduleLoad framework/user
-    moduleLoad sys
     moduleLoad menu
-    moduleLoad utils
+    moduleLoad sys
     moduleLoadLocal src
 }
 
-
 loader_manager
-start
+choices_entry  $@

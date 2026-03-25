@@ -1,15 +1,5 @@
 #!/bin/bash
 
-source ${LIBPATH}/_loader.sh
-
-loader_manager() {
-    moduleLoad menu
-    moduleLoad sys
-
-    moduleLoadLocal includes
-}
-
-
 
 all() {
   for(( itest=0;itest<${#tests[@]};itest++)); do
@@ -42,33 +32,3 @@ tmenu() {
   fi
 }
 
-
-check() {
-  if [[ "$1" == "help" ]]; then
-    help
-    return
-  fi
-
-  choices_test_list
-  if [[ "$1" == "all" ]]; then
-    all 
-    return
-  fi
-  if [[ "$1" == "list" ]]; then
-    tmenu
-    return
-  fi
-  if [[ "$1" == "" ]]; then
-    tmenu
-    return
-  fi
-
-
-  echo -e "${ERROR}option error.${RESET}"
-  help
-}
-
-
-
-loader_manager
-check $@
