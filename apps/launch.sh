@@ -8,10 +8,10 @@
 # this script simplifies it:
 # example:
 #     from apps folder
-#         sudo ./launch.sh ./tests/libtools.sh
+#         sudo ./launch.sh ./tests/libtools.sh arg1 arg2
 #
 #     from tests folder
-#         sudo ../launch.sh ./libtools.sh
+#         sudo ../launch.sh ./libtools.sh arg1 arg2
 #  -----------------------------------------------------------------------------
 
 scriptdir() {
@@ -22,6 +22,9 @@ scriptdir() {
 
 export LIBPATH="$(scriptdir)/../lib"
 
-eval "$1"
+file="$1"
+shift
+
+eval "$file" "$@"
 
 
