@@ -3,10 +3,10 @@
 source ${LIBPATH}/_loader.sh
 
 loader_manager() {
-    moduleLoad "menu"
-    moduleLoad "sys"
+    moduleLoad menu
+    moduleLoad sys
 
-    moduleLoadLocal "includes"
+    moduleLoadLocal includes
 }
 
 

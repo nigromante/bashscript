@@ -3,9 +3,7 @@
 source ${LIBPATH}/_loader.sh
 
 loader_manager() {
-    # moduleVerbose
-    moduleLoad "sys"
-    moduleList
+    moduleLoad sys
 }
 
 

@@ -4,10 +4,10 @@ source ${LIBPATH}/_loader.sh
 
 loader_manager() {
     moduleVerbose
-    moduleLoad "sys"
-    moduleLoad "menu"
-    moduleLoad "user"
-    moduleLoad "utils"
+    moduleLoad sys
+    moduleLoad menu
+    moduleLoad user
+    moduleLoad utils
     moduleList
 }
 

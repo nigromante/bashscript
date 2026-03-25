@@ -3,14 +3,10 @@
 source ${LIBPATH}/_loader.sh
 
 loader_manager() {
-    moduleVerbose
-
-    moduleLoad "menu"
-    moduleLoad "user"
-    moduleLoad "sys"
-    moduleLoad "utils"
-
-    moduleList
+    moduleLoad menu
+    moduleLoad user
+    moduleLoad sys
+    moduleLoad utils
 }
 
 

@@ -1,4 +1,4 @@
 #!/bin/bash
 
-moduleLoadFile "mplayer.sh"
+moduleLoadFile mplayer.sh
 

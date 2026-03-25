@@ -14,7 +14,7 @@ moduleLoad() {
     Modules["$1"]="$1"
     folder="${LIBPATH}/$1"
     export MODULE="$folder"
-    moduleLoadFile "_loader.sh"
+    moduleLoadFile _loader.sh
 }
 
 
@@ -28,7 +28,7 @@ moduleLoadLocal() {
     Modules["$1"]="$1"
     folder="$( pwd )/$1"
     export MODULE="$folder"
-    moduleLoadFile "_loader.sh"
+    moduleLoadFile _loader.sh
 }
 
 
