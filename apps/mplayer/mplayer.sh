@@ -3,9 +3,9 @@
 source ${LIBPATH}/_loader.sh
 
 loader_manager() {
-    moduleLoad menu
-    moduleLoad user
+    moduleLoad framework/user
     moduleLoad sys
+    moduleLoad menu
     moduleLoad utils
 }
 

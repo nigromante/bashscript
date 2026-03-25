@@ -18,7 +18,6 @@ init() {
 run() {
     moduleVerbose
     moduleList
-    moduleListFunctions
 }
 
 
