@@ -30,5 +30,6 @@ title() {
 
 
 bye() {
+  moduleAppName
 	print "${BRx2}Bye...${BR}"
 }
