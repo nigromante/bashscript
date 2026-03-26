@@ -3,6 +3,9 @@
 source ${LIBPATH}/_loader.sh
 
 loader_manager() {
+
+    moduleVerbose
+
     moduleLoad framework/user
     moduleLoad sys
     moduleLoad choices 

@@ -1,5 +1,6 @@
 #!/bin/bash
 
+declare -A ModulesDisabled
 declare -A Modules
 declare moduleVerbose=false
 
@@ -11,12 +12,21 @@ moduleLoad() {
         fi
         return
     fi
+    if [[ -n "${ModulesDisabled["$1"]}" ]]; then
+        if [[ $moduleVerbose == true ]]; then
+            echo "Module [$1] disabled!"
+        fi
+        return
+    fi
     Modules["$1"]="$1"
     folder="${LIBPATH}/$1"
     export MODULE="$folder"
     moduleLoadFile _loader.sh
 }
 
+moduleDisable() {
+    ModulesDisabled["$1"]="$1"
+}
 
 moduleLoadLocal() {
     dir=$( basename "$PWD" )

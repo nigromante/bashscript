@@ -1,5 +1,7 @@
 #!/bin/bash
 
+moduleDisable lazy_rofi
+
 moduleLoadFile choices_menu.sh
 moduleLoadFile menu.sh
 moduleLoadFile menu_menudisplay.sh
