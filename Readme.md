@@ -21,7 +21,8 @@
 
 
 
-### Setting alias
+### Setting alias 
+#### (alias launch=../../launch/run.sh) 
 
 &emsp;&emsp; cd apps/tests
 
@@ -36,4 +37,15 @@
 &emsp;&emsp; cd apps/tests
 
 &emsp;&emsp; sudo ../../launch/run.sh ./root.sh
+
+
+
+### Runnig as Root using Alias 
+#### (alias sulaunch=sudo ../../launch/run.sh)
+
+&emsp;&emsp; cd apps/tests
+
+&emsp;&emsp; source ../../launch/alias.sh
+
+&emsp;&emsp; sulaunch ./root.sh
 

@@ -56,12 +56,12 @@ menudisplay_content() {
 }
 
 menudisplay_cursor_up() {
-    _clearLastMenu "1"   # deb subir 1 linea al titulo
+    upLines "1"   # deb subir 1 linea al titulo
 }
 
 manedisplay_pageup() {
     height=$(( $itemsLength + $1 ))
-    _clearLastMenu "${height}"
+    upLines "${height}"
 }
 
 menudisplay_pagedown() {
