@@ -1,5 +1,7 @@
 #!/bin/bash
 
+PRESENTER="menu"
+
 init() {
     setAuthor       "JULIAN VIDAL A"
     setTitle        "MPlayer Menu"
@@ -11,7 +13,7 @@ run() {
 
     mplayer_devices
 
-    choices -o "mplayer_list" -vo "mplayer_device_selected" -T "Dispositivo\x20Webcam"
+    choices -p $PRESENTER -o "mplayer_list" -vo "mplayer_device_selected" -T "Dispositivo\x20Webcam"
 
     if [[ "${mplayer_device_selected}" != "" ]]; then
 
