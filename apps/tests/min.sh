@@ -3,10 +3,10 @@
 source ${LIBPATH}/_loader.sh
 
 loader_manager() {
+    moduleVerbose
     moduleLoad sys 
 }
 
-moduleVerbose
 loader_manager
 
 

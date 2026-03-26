@@ -8,9 +8,6 @@ loader_manager() {
 }
 
 
-
-
-moduleVerbose
 loader_manager
 start
 

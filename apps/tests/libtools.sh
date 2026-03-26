@@ -5,17 +5,12 @@ source ${LIBPATH}/_loader.sh
 loader_manager() {
     moduleLoad framework/user
     moduleLoad sys
-    moduleLoad menu
+    moduleLoad choices
     moduleLoad utils
 }
 
-begin() {
-    setAuthor       "JULIAN VIDAL A"
-    setTitle        "Module Loader"
-    setDescription  "  Modules & Functions "
-}
 
-run() {
+begin() {
     moduleVerbose
     moduleList
     moduleListFunctions
@@ -24,6 +19,5 @@ run() {
 
 loader_manager
 
-clear
 start
 

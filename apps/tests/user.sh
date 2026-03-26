@@ -3,7 +3,7 @@
 source ${LIBPATH}/_loader.sh
 
 loader_manager() {
-    moduleLoad framework/root
+    moduleLoad framework/user
     moduleLoad sys
     moduleLoad choices
     moduleLoad utils
