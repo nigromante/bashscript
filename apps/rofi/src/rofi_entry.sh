@@ -17,10 +17,7 @@ run() {
     fi
 
 
-    aopts_meses=("ene" "feb" "mar" "abr" "may" "jun" "jul" "ago" "sep" "oct" "nov" "dic")
-    albls_meses=("enero" "febrero" "marzo" "abril" "mayo" "junio" "julio" "agosto" "septiembre" "octubre" "noviembre" "diciembre")
-
-    choices -o "aopts_meses" -l "albls_meses" -vo "salida" -T "Seleccione\x20Mes"
+    choices -o "meses_opts" -l "meses_opts" -vo "salida" -T "Seleccione\x20Mes"
 
     echo "[${salida}]"
 

@@ -48,14 +48,14 @@ choices_test_simple() {
 }
 
 choices_test_labels() {
-  choices -p $PRESENTER -v -o "aopts_dias" -l "albls_dias" -vo "salida" -T "Seleccione\x20Dia"
+  choices -p $PRESENTER -v -o "dias_opts" -l "dias_lbls" -vo "salida" -T "Seleccione\x20Dia"
   if [[ "$salida" != "" ]]; then
     echo -e "\t Resultado  : " "[${SUCCESS}${salida}${RESET}]"
   fi
 }
 
 choices_test_clean() {
-  choices -p $PRESENTER -o "aopts_meses" -l "albls_meses" -vo "salida" -T "Seleccione\x20Mes"
+  choices -p $PRESENTER -o "meses_opts" -l "meses_lbls" -vo "salida" -T "Seleccione\x20Mes"
   if [[ "$salida" != "" ]]; then
     echo -e "\t Resultado  : " "[${SUCCESS}${salida}${RESET}]"
   fi

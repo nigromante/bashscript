@@ -25,10 +25,8 @@ webcam() {
 
 
 meses() {
-    aopts_meses=("ene" "feb" "mar" "abr" "may" "jun" "jul" "ago" "sep" "oct" "nov" "dic")
-    albls_meses=("enero" "febrero" "marzo" "abril" "mayo" "junio" "julio" "agosto" "septiembre" "octubre" "noviembre" "diciembre")
 
-    choices -p $PRESENTER -o "aopts_meses" -l "albls_meses" -vo "salida" -T "Seleccione\x20Mes"
+    choices -p $PRESENTER -o "meses_opts" -l "meses_lbls" -vo "salida" -T "Seleccione\x20Mes"
 
     echo "[${salida}]"
 }
