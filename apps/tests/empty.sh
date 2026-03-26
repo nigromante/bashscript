@@ -7,9 +7,7 @@ loader_manager() {
     moduleLoad framework/user
 }
 
-initdd(){ 
-  echo -n "" 
-}
+
 
 
 moduleVerbose

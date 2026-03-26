@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-init() {
+begin() {
     setAuthor       "JULIAN VIDAL A"
     setTitle        "MPlayer Menu"
     setDescription  " --- W E B C A M ---  Test "

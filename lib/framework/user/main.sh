@@ -6,7 +6,7 @@ start() {
   
   trap_hideCursor
 
-  [[ $(type -t init ) ]] && init 
+  [[ $(type -t begin ) ]] && begin 
 
   [[ $(type -t welcome) ]] && welcome
 

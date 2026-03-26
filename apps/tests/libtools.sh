@@ -9,7 +9,7 @@ loader_manager() {
     moduleLoad utils
 }
 
-init() {
+begin() {
     setAuthor       "JULIAN VIDAL A"
     setTitle        "Module Loader"
     setDescription  "  Modules & Functions "
