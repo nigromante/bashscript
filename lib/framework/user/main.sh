@@ -6,15 +6,15 @@ start() {
   
   trap_hideCursor
 
-  init
+  [[ $(type -t init ) ]] && init 
 
-  welcome
+  [[ $(type -t welcome) ]] && welcome
 
-  run
+  [[ $(type -t run) ]] && run
 
-  bye
+  [[ $(type -t bye) ]] && bye
 
-  finish
+  [[ $(type -t finish) ]] && finish 
 
   cursor_show
 
