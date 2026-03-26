@@ -199,7 +199,7 @@ choices_themeshape_list() {
 # ------------------------------------- RUN
 choices_run() {
 
-    moduleLoadLazy "lazy_${plugin}"
+    moduleLoadLazy "choices_plugins/${plugin}"
     choices_menu_loader
     choices_menu_run
 }
