@@ -1,8 +1,11 @@
 #!/bin/bash
 
+
 start() {
   
   check_root 
+
+  clear
 
   trap_hideCursor
 
@@ -12,24 +15,9 @@ start() {
 
   [[ $(type -t run) ]] && run
 
-  [[ $(type -t bye) ]] && bye
-
   [[ $(type -t finish) ]] && finish 
 
   cursor_show
   
 }
 
-
-
-setAuthor() {
-  APP_AUTHOR="$1"
-}
-
-setTitle() {
-  APP_TITLE="$1"
-}
-
-setDescription() {
-  APP_DESCRIPTION="$1"
-}

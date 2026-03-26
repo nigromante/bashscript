@@ -6,6 +6,9 @@ scriptdir() {
     echo "$SCRIPTDIR"
 }
 
-export LIBPATH="$(scriptdir)/../lib"
+LIBPATH="$( scriptdir )/../lib"
+export LIBPATH="$LIBPATH"
+
+echo $LIBPATH
 
 

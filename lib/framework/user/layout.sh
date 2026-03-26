@@ -27,9 +27,3 @@ title() {
 	    print "${INFO}${BR}${APP_DESCRIPTION}${BR}${RESET}"
   fi
 }
-
-
-bye() {
-  moduleAppName
-	print "${BRx2}Bye...${BR}"
-}

@@ -1,6 +1,7 @@
 #!/bin/bash
 
 moduleLoadFile const.sh
+moduleLoadFile app.sh
 moduleLoadFile string.sh
 moduleLoadFile array.sh
 moduleLoadFile vio.sh
