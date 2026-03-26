@@ -1,6 +1,9 @@
+# Bash Script Framework
+
 ## Usage:
 
 ### Setting LIBPATH first
+
 
 &emsp;&emsp; cd apps/tests
 
@@ -14,4 +17,23 @@
 
 &emsp;&emsp; cd apps/tests
 
-&emsp;&emsp; ../launch.sh ./string.sh
+&emsp;&emsp; ../../launch/run.sh ./string.sh
+
+
+
+### Setting alias
+
+&emsp;&emsp; cd apps/tests
+
+&emsp;&emsp; source ../../launch/alias.sh
+
+&emsp;&emsp; launch ./string.sh
+
+
+
+### Runnig as Root
+
+&emsp;&emsp; cd apps/tests
+
+&emsp;&emsp; sudo ../../launch/run.sh ./root.sh
+
