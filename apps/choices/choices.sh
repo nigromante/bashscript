@@ -3,7 +3,7 @@
 source ${LIBPATH}/_loader.sh
 
 loader_manager() {
-    moduleLoad menu
+    moduleLoad choices 
     moduleLoad sys
     moduleLoadLocal src
 }

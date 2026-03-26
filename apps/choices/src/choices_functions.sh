@@ -1,5 +1,16 @@
 #!/bin/bash
 
+PRESENTER="rofi"
+
+info() {
+    moduleVerbose
+
+    moduleAppName
+    moduleList 
+    moduleDisabledList
+
+    moduleSilent
+}
 
 all() {
   for(( itest=0;itest<${#tests[@]};itest++)); do
@@ -24,7 +35,7 @@ help() {
 
 
 tmenu() {
-  choices -o "tests" -vo "test" -tc "loki" -ts "solid" -v
+  choices -p $PRESENTER -o "tests" -vo "test" -tc "loki" -ts "solid" -v
   if [[ "$test" != "" ]]; then
     clear
     echo -e "\t Resultado  : " "[${SUCCESS}${test}${RESET}]"

@@ -14,6 +14,8 @@ start() {
 
   bye
 
+  finish
+
   cursor_show
 
 }

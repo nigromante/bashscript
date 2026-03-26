@@ -2,6 +2,11 @@
 
 
 choices_entry() {
+  if [[ "$1" == "info" ]]; then
+    info 
+    return
+  fi
+
   if [[ "$1" == "help" ]]; then
     help
     return
