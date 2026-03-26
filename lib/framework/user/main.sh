@@ -3,8 +3,10 @@
 
 start() {
 
+  check_user
+
   clear
-  
+
   trap_hideCursor
 
   [[ $(type -t begin ) ]] && begin 

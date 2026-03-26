@@ -26,3 +26,11 @@ check_root() {
   fi
 }
 
+check_user() {
+  if [ $EUID == 0 ]
+  then
+    print "${BRx2}${ERROR}Esta aplicación NO corre con privilegios de root ${BRx2}"
+	  exit 1	
+  fi
+}
+
