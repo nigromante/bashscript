@@ -1,7 +1,6 @@
 #!/bin/bash
 
 welcome() {
-	clear
   banner
 	header 
   title

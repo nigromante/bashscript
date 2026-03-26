@@ -24,9 +24,31 @@ moduleLoad() {
     moduleLoadFile _loader.sh
 }
 
+
+moduleLoadLazy() {
+    if [[ -n "${Modules["$1"]}" ]]; then
+        if [[ $moduleVerbose == true ]]; then
+            echo "Module [$1] already loaded!"
+        fi
+        return
+    fi
+    if [[ -n "${ModulesDisabled["$1"]}" ]]; then
+        if [[ $moduleVerbose == true ]]; then
+            echo "Module [$1] disabled!"
+        fi
+        return
+    fi
+    Modules["$1"]="-$1-"
+    folder="${LIBPATH}/$1"
+    export MODULE="$folder"
+    moduleLoadFile _loader.sh
+}
+
+
 moduleDisable() {
     ModulesDisabled["$1"]="$1"
 }
+
 
 moduleLoadLocal() {
     dir=$( basename "$PWD" )
@@ -36,7 +58,7 @@ moduleLoadLocal() {
         fi
         return
     fi
-    Modules["${dir}_$1"]="${dir}/$1"
+    Modules["${dir}_$1"]="[${dir}/$1]"
     folder="$( pwd )/$1"
     export MODULE="$folder"
     moduleLoadFile _loader.sh
@@ -57,10 +79,24 @@ moduleVerbose() {
 }
 
 
+moduleSilent() {
+    moduleVerbose=false
+}
+
+
 moduleList() { 
     if [[ $moduleVerbose == true ]]; then
         echo
         echo -e "\t Modulos cargados : " "${Modules[@]}"
+        echo
+    fi
+}
+
+
+moduleDisabledList() { 
+    if [[ $moduleVerbose == true ]]; then
+        echo
+        echo -e "\t Modulos excluidos : " "${ModulesDisabled[@]}"
         echo
     fi
 }
@@ -75,3 +111,12 @@ moduleListFunctions() {
     fi
 }
 
+
+moduleAppName() {
+    if [[ $moduleVerbose == true ]]; then
+        name=$( basename "$0")
+        echo
+        echo -e "\t App : " "$PWD/$name"
+        echo
+    fi
+}
