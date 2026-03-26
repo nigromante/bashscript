@@ -7,11 +7,11 @@ choices_menu_loader() {
     title=$( echo -e "$title" )
     if [[ $labelsLength > 0 ]]; then
       for(( i=0 ; i < $itemsLength ; i++ )); do
-        opciones2+=("${menuItems[$i]}:${labelItems[$i]}")
+        opciones2+=("${menuItems[$i]} : ${labelItems[$i]}")
       done
     else
       for(( i=0 ; i < $itemsLength ; i++ )); do
-        opciones2+=("${menuItems[$i]}:${menuItems[$i]}")
+      opciones2+=("${menuItems[$i]}")
       done
     fi
     opciones=$(IFS="|"; echo "${opciones2[*]}")
@@ -23,6 +23,6 @@ choices_return() {
 }
 
 choices_menu_run() {
-    choice=$( echo -e  "$opciones" | rofi -sep '|' -dmenu -p "Seleccionar" -window-title="$title" -display-columns="1" -display-column-separator=':' )
+    choice=$( echo -e  "$opciones" | rofi -sep '|' -dmenu -p "${title} " )
     choices_return "$choice"
 }

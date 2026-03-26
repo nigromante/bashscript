@@ -12,7 +12,8 @@ run() {
     mplayer_devices
     choices -o "mplayer_list" -vo "mplayer_device_selected" -T "Dispositivo\x20Webcam"
     if [[ "${mplayer_device_selected}" != "" ]]; then
-       mplayer_play_webcam ${mplayer_device_selected}
+        echo "[${mplayer_device_selected}]"
+        mplayer_play_webcam ${mplayer_device_selected}
     fi
 
 
