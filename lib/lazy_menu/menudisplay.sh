@@ -1,0 +1,73 @@
+#!/bin/bash
+
+
+menudisplay_prepare() {
+
+    titulo="${BORDER}${UP_LEFT}----------${TITULO_LEFT}${TEXT_TITLE} ${title} ${BORDER}${TITULO_RIGHT}----------${UP_RIGHT}"
+    titulo2="${BORDER}----------${TITULO_LEFT}${TEXT_TITLE} ${title} ${BORDER}${TITULO_RIGHT}----------"
+    
+    titulo2=$(unescape "$titulo2")
+    bottom="$(mklinea "$titulo2")"
+
+    titulo="$(strreplace "$titulo" "-" "${HORIZONTAL}")"
+    bottom="$(strreplace "$bottom" "-" "${HORIZONTAL}")"
+
+    if [[ 0 -lt $labelsLength ]]; then
+      normalizeList "labelItems" "$titulo2"
+    else
+      normalizeList "menuItems" "$titulo2"
+    fi
+    menudisplay_titulo="$titulo"
+    menudisplay_bottom="$bottom"
+}
+
+
+menudisplay_layout(){
+
+    if [[ $verbose == true ]]; then 
+      echo -e "${menudisplay_titulo} ${LIGHTGRAY}(${theme}/${shape})              "
+    else
+      echo -e "${menudisplay_titulo}"
+    fi
+
+    menudisplay_pagedown
+
+    echo -e "${BORDER}${BOTTOM_LEFT}${menudisplay_bottom}${BOTTOM_RIGHT}${RESET}"
+
+    manedisplay_pageup 1
+}
+
+
+menudisplay_content() {
+
+    for (( i=0 ; i < $itemsLength ; i++ )); do
+        
+        currItem="${narr[$i]}"
+
+        if [[ $i == $selectedIndex ]]; then
+            print "${BORDER}${VERTICAL_SELECT}${ICON_SELECTED}  ${MARK}  ${TEXT_SELECTED} ${currItem} ${BORDER}${VERTICAL_SELECT}${RESET}"
+        else
+            print "${BORDER}${VERTICAL}     ${TEXT_NORMAL} ${currItem} ${BORDER}${VERTICAL}${RESET}"
+        fi
+
+    done 
+
+    manedisplay_pageup 0
+}
+
+menudisplay_cursor_up() {
+    _clearLastMenu "1"   # deb subir 1 linea al titulo
+}
+
+manedisplay_pageup() {
+    height=$(( $itemsLength + $1 ))
+    _clearLastMenu "${height}"
+}
+
+menudisplay_pagedown() {
+    for(( i=0 ; i < $itemsLength ; i++ )); do
+      echo ""
+    done
+}
+
+
