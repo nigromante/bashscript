@@ -13,6 +13,8 @@ choices_test_entry() {
     return
   fi
 
+  choices_test_list    # carga lista de tests
+
   if [[ "$1" == "all" ]]; then
     choices_test_entry_all 
     return
