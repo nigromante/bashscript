@@ -1,43 +1,21 @@
 #!/bin/bash
 
 
-
-normalizeList() {
-  size=$( array_getSize "$1" )
-  length=$( array_getLongest "$1" )
-  titlength="${#2}"
-  if [[ $length < $titlength ]]; then
-    length=$(( $titlength - 12 ))
-  fi
-
-  spaces=$(printf ' %.0s' $(eval "echo {1.."$(($length))"}"))
-	local arr=$1[@]
-	arr=("${!arr}")
-
-  narr=()
-  for(( i=0 ; i < $size ; i++ )); do
-    currItem="${arr[$i]}"
-	  currItemLength=${#currItem}
-	  currItem=" ${spaces:0:0}${currItem}${spaces:currItemLength} "
-    narr+=("$currItem")
-  done
-}
-
 menudisplay_prepare() {
 
     titulo="${BORDER}${UP_LEFT}----------${TITULO_LEFT}${TEXT_TITLE} ${title} ${BORDER}${TITULO_RIGHT}----------${UP_RIGHT}"
     titulo2="${BORDER}----------${TITULO_LEFT}${TEXT_TITLE} ${title} ${BORDER}${TITULO_RIGHT}----------"
     
-    titulo2=$(unescape "$titulo2")
-    bottom="$(mklinea "$titulo2")"
+    titulo2=$(menuutils_unescape "$titulo2")
+    bottom="$(menuutils_mklinea "$titulo2")"
 
     titulo="$(str_replace "$titulo" "-" "${HORIZONTAL}")"
     bottom="$(str_replace "$bottom" "-" "${HORIZONTAL}")"
 
     if [[ 0 -lt $labelsLength ]]; then
-      normalizeList "labelItems" "$titulo2"
+      menuutils_normalizeList "labelItems" "$titulo2"
     else
-      normalizeList "menuItems" "$titulo2"
+      menuutils_normalizeList "menuItems" "$titulo2"
     fi
     menudisplay_titulo="$titulo"
     menudisplay_bottom="$bottom"

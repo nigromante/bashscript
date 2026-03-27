@@ -10,5 +10,5 @@ moduleLoadFile menutheme_color.sh
 moduleLoadFile menutheme_color_list.sh
 moduleLoadFile menutheme_shape.sh
 moduleLoadFile menutheme_shape_list.sh
-moduleLoadFile funcs.sh
+moduleLoadFile menuutils.sh
 
