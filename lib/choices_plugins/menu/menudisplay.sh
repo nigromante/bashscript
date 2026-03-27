@@ -56,7 +56,7 @@ menudisplay_layout(){
 
     echo -e "${BORDER}${BOTTOM_LEFT}${menudisplay_bottom}${BOTTOM_RIGHT}${RESET}"
 
-    manedisplay_pageup 1
+    menudisplay_pageup 1
 }
 
 
@@ -74,14 +74,14 @@ menudisplay_content() {
 
     done 
 
-    manedisplay_pageup 0
+    menudisplay_pageup 0
 }
 
 menudisplay_cursor_up() {
     upLines "1"   # deb subir 1 linea al titulo
 }
 
-manedisplay_pageup() {
+menudisplay_pageup() {
     height=$(( $itemsLength + $1 ))
     upLines "${height}"
 }
