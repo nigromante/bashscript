@@ -63,6 +63,10 @@ choices_test_clean() {
   if [[ "$salida" != "" ]]; then
     echo -e "\t Resultado  : " "[${SUCCESS}${salida}${RESET}]"
   fi
+    moduleVerbose
+    moduleList
+    moduleListFunctions
+    moduleSilent
 }
 
 choices_test_no_impl() {
@@ -105,7 +109,6 @@ choices_test_list() {
     "choices_test_help"
     "choices_test_themecolor_list"
     "choices_test_themeshape_list"
-    "choices_test_includes"
     "choices_test_no_args"
     "choices_test_vacio"
     "choices_test_unico"
@@ -118,5 +121,6 @@ choices_test_list() {
     "choices_test_themecolor"
     "choices_test_themeshape"
     "choices_test_clean"
+    "choices_test_includes"
   )
 }
