@@ -26,6 +26,10 @@ moduleLoad() {
 
 
 moduleLoadLazy() {
+    #echo "moduleLoadLazy :  [$1]"
+    #echo "Modules          :  ${Modules[@]}"
+    #echo "Modules Disabled :  ${ModulesDisabled[@]}"
+
     if [[ -n "${Modules["$1"]}" ]]; then
         if [[ $moduleVerbose == true ]]; then
             echo "Module [$1] already loaded!"

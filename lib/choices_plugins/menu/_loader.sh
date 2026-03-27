@@ -1,6 +1,6 @@
 #!/bin/bash
 
-moduleDisable lazy_rofi
+# moduleDisable choices_plugins/rofi
 
 moduleLoadFile choices_menu.sh
 moduleLoadFile menu.sh

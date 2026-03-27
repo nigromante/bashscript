@@ -37,7 +37,6 @@ help() {
 tmenu() {
   choices -p $PRESENTER -o "tests" -vo "test" -tc "loki" -ts "solid" -v
   if [[ "$test" != "" ]]; then
-    clear
     echo -e "\t Resultado  : " "[${SUCCESS}${test}${RESET}]"
     eval "${test}"
   fi

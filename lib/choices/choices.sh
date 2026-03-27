@@ -183,7 +183,9 @@ choices_themecolor_list() {
   echo
   echo "Theme Color List"
   echo
-  echo -e "\t${WARNING} $( menutheme_color_getNames ) ${RESET}"
+  if [[ $( type -t menutheme_color_getNames ) ]]; then
+      echo -e "\t${WARNING} $( menutheme_color_getNames ) ${RESET}"
+  fi
   echo
 } 
 
@@ -192,16 +194,17 @@ choices_themeshape_list() {
   echo
   echo "Theme Shape List"
   echo
-  echo -e "\t${WARNING} $( menutheme_shape_getNames ) ${RESET}"
+  if [[ $( type -t menutheme_shape_getNames ) ]]; then
+      echo -e "\t${WARNING} $( menutheme_shape_getNames ) ${RESET}"
+  fi
   echo
 } 
 
 # ------------------------------------- RUN
 choices_run() {
-
     moduleLoadLazy "choices_plugins/${plugin}"
-    choices_menu_loader
-    choices_menu_run
+    eval "${plugin}_menu_loader"
+    eval "${plugin}_menu_run"
 }
 
 # ------------------------------------ INFO

@@ -2,7 +2,7 @@
 
 declare -a opciones2
 
-choices_menu_loader() {
+rofi_menu_loader() {
     opciones2=()
     title=$( echo -e "$title" )
     if [[ $labelsLength > 0 ]]; then
@@ -17,12 +17,12 @@ choices_menu_loader() {
     opciones=$(IFS="|"; echo "${opciones2[*]}")
 }
 
-choices_return() {
+rofi_return() {
     choice=$( echo "$1" | awk -F : '{ print $1 }' )
     printf -v "$result" "$choice"
 }
 
-choices_menu_run() {
+rofi_menu_run() {
     choice=$( echo -e  "$opciones" | rofi -sep '|' -dmenu -p "${title} " )
-    choices_return "$choice"
+    rofi_return "$choice"
 }

@@ -9,4 +9,5 @@ loader_manager() {
 }
 
 loader_manager
+# moduleVerbose
 choices_entry  $@
