@@ -3,7 +3,7 @@
 PRESENTER="rofi"
 
 
-choices_entry_all() {
+choices_test_entry_all() {
   for(( itest=0;itest<${#tests[@]};itest++)); do
     test="${tests[$itest]}"
     clear
@@ -15,7 +15,7 @@ choices_entry_all() {
 }
 
 
-choices_entry_help() {
+choices_test_entry_help() {
   vio_print
   vio_print "Usage"
   vio_print
@@ -24,7 +24,7 @@ choices_entry_help() {
 }
 
 
-choices_entry_tmenu() {
+choices_test_entry_tmenu() {
   choices -p $PRESENTER -o "tests" -vo "test" -tc "loki" -ts "solid" -v
   if [[ "$test" != "" ]]; then
     vio_print "\t Resultado  : " "[${SUCCESS}${test}${RESET}]"
