@@ -75,7 +75,7 @@ menu() {
     menu_init
     loopFlag=true
     while $loopFlag ; do
-        _readkey _key
+        kbd_readKey _key
         case $_key in
             $K_ENTER      ) menu_select             
                             loopFlag=false          ;;

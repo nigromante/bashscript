@@ -6,7 +6,7 @@ moduleLoadFile string.sh
 moduleLoadFile array.sh
 moduleLoadFile vio.sh
 moduleLoadFile trap.sh
-moduleLoadFile keyboard.sh
+moduleLoadFile kbd.sh
 moduleLoadFile sys.sh
 moduleLoadFile net.sh
 moduleLoadFile globals.sh

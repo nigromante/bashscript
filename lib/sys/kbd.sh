@@ -1,6 +1,6 @@
 #!/bin/bash
 
-_readkey()
+kbd_readKey()
 {
   local kp
   ESC=$'\e'

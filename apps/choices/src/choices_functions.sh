@@ -10,7 +10,7 @@ all() {
     vio_print "${GREEN}---------- [ ${YELLOW}" $test "${GREEN} ] ----------${RESET}"
     eval "${test}"
     vio_print "${YELLOW}--- Presione cualquier tecla para continuar ---${RESET}"
-    _readkey "kkey"
+    kbd_readKey "kkey"
   done
 }
 
