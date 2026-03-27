@@ -8,25 +8,25 @@ choices_entry() {
   fi
 
   if [[ "$1" == "help" ]]; then
-    help
+    choices_entry_help
     return
   fi
 
   choices_test_list
   if [[ "$1" == "all" ]]; then
-    all 
+    choices_entry_all 
     return
   fi
   if [[ "$1" == "list" ]]; then
-    tmenu
+    choices_entry_tmenu
     return
   fi
   if [[ "$1" == "" ]]; then
-    tmenu
+    choices_entry_tmenu
     return
   fi
 
 
   vio_error "wrong parameter, check help"
-  help
+  choices_entry_help
 }
