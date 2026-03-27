@@ -47,14 +47,14 @@ menudisplay_prepare() {
 menudisplay_layout(){
 
     if [[ $verbose == true ]]; then 
-      echo -e "${menudisplay_titulo} ${LIGHTGRAY}(${theme}/${shape})              "
+      vio_echo "${menudisplay_titulo} ${LIGHTGRAY}(${theme}/${shape})              "
     else
-      echo -e "${menudisplay_titulo}"
+      vio_echo "${menudisplay_titulo}"
     fi
 
     menudisplay_pagedown
 
-    echo -e "${BORDER}${BOTTOM_LEFT}${menudisplay_bottom}${BOTTOM_RIGHT}${RESET}"
+    vio_echo "${BORDER}${BOTTOM_LEFT}${menudisplay_bottom}${BOTTOM_RIGHT}${RESET}"
 
     menudisplay_pageup 1
 }
@@ -67,9 +67,9 @@ menudisplay_content() {
         currItem="${narr[$i]}"
 
         if [[ $i == $selectedIndex ]]; then
-            print "${BORDER}${VERTICAL_SELECT}${ICON_SELECTED}  ${MARK}  ${TEXT_SELECTED} ${currItem} ${BORDER}${VERTICAL_SELECT}${RESET}"
+            vio_echo "${BORDER}${VERTICAL_SELECT}${ICON_SELECTED}  ${MARK}  ${TEXT_SELECTED} ${currItem} ${BORDER}${VERTICAL_SELECT}${RESET}"
         else
-            print "${BORDER}${VERTICAL}     ${TEXT_NORMAL} ${currItem} ${BORDER}${VERTICAL}${RESET}"
+            vio_echo "${BORDER}${VERTICAL}     ${TEXT_NORMAL} ${currItem} ${BORDER}${VERTICAL}${RESET}"
         fi
 
     done 

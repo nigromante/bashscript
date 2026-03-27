@@ -28,15 +28,15 @@ arrayTrace() {
 	lista=("${!lista}")
   listalen="${#lista[@]}"
 
-  echo  -e "\t ------------------------------"
-  echo  -e "\t Variable : ${WARNING}$1${RESET}"
-  echo  -e "\t Length   : ${SUCCESS}${listalen}${RESET}"
+  vio_echo "\t ------------------------------"
+  vio_echo "\t Variable : ${WARNING}$1${RESET}"
+  vio_echo "\t Length   : ${SUCCESS}${listalen}${RESET}"
   if [[ $listalen -gt 0 ]]; then
-      echo  -e "\t List     : ${SUCCESS}${lista[*]}${RESET}"
-      # echo  -e "\t Index    : ${SUCCESS}${!lista[@]}${RESET}"
-      echo  -e "\t Items    : "
+      vio_echo "\t List     : ${SUCCESS}${lista[*]}${RESET}"
+      vio_echo "\t Index    : ${SUCCESS}${!lista[@]}${RESET}"
+      vio_echo "\t Items    : "
       for(( i=0 ; i < $listalen ; i++ )); do
-          echo  -e "\t\t [${SUCCESS}$i${RESET}] : ${SUCCESS}${lista[$i]}${RESET}"
+          vio_echo "\t\t [${SUCCESS}$i${RESET}] : ${SUCCESS}${lista[$i]}${RESET}"
       done
   fi
 

@@ -27,6 +27,6 @@ choices_entry() {
   fi
 
 
-  echo -e "${ERROR}option error.${RESET}"
+  vio_error "wrong parameter, check help"
   help
 }

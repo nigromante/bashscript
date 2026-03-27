@@ -15,39 +15,43 @@ nl() {
     echo -e "${BR}"
 }
 
+vio_echo() {
+    echo -e "$1"
+}
 
-print () {
+
+print() {
     echo -e "${BLANK}$1${RESET}"
 }
 
 
-error( ) {
+vio_error() {
     echo -e "${BR}${ERROR}Error   : $1${RESET}"
 }
 
 
-success( ) {
+vio_success() {
     echo -e "${BR}${SUCCESS}Success : $1${RESET}"
 }
 
 
-warning( ) {
+vio_warning() {
     echo -e "${BR}${WARNING}Warning : $1${RESET}"
 }
 
 
-info( ) {
+vio_info() {
     echo -e "${BR}${INFO}Info    : $1${RESET}"
 }
 
 
 cursor_hide() {
-      print "${CURSOR_HIDE}"
+    echo -e -n "${CURSOR_HIDE}"
 }
 
 
 cursor_show() {
-      print "${CURSOR_SHOW}"
+    echo -e -n "${CURSOR_SHOW}"
 }
 
 upln() {

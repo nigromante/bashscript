@@ -3,8 +3,9 @@
 declare -a opciones2
 
 rofi_menu_loader() {
-    opciones2=()
     title=$( echo -e "$title" )
+    
+    opciones2=()
     if [[ $labelsLength > 0 ]]; then
       for(( i=0 ; i < $itemsLength ; i++ )); do
         opciones2+=("${menuItems[$i]} : ${labelItems[$i]}")

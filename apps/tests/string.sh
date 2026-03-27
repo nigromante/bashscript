@@ -16,52 +16,52 @@ str_in_6="JULian VIDAL alarcon"
 
 test1() {
   str=$( strpadr "$str_in_1" 20 ) 
-  echo -e "\n\t[${str_in_1}] >> [${str}]"
+  vio_echo "\n\t[${str_in_1}] >> [${str}]"
 }
 
 test2() {
   str=$( strpadl "$str_in_1" 20 ) 
-  echo -e "\n\t[${str_in_1}] >> [${str}]"
+  vio_echo "\n\t[${str_in_1}] >> [${str}]"
 }
 
 test3() {
   str=$( strpadc "$str_in_1" 20 ) 
-  echo -e "\n\t[${str_in_1}] >> [${str}]"
+  vio_echo "\n\t[${str_in_1}] >> [${str}]"
 }
 
 test4() {
   str=$( strpadc "$str_in_2" 20 ) 
-  echo -e "\n\t[${str_in_2}] >> [${str}]"
+  vio_echo "\n\t[${str_in_2}] >> [${str}]"
 }
 
 test5() {
   str=$( strupper "$str_in_3" )
-  echo -e "\n\t[${str_in_3}] >> [${str}]"
+  vio_echo "\n\t[${str_in_3}] >> [${str}]"
 }
 
 test6() {
   str=$( strlower "$str_in_3" )
-  echo -e "\n\t[${str_in_3}] >> [${str}]"
+  vio_echo "\n\t[${str_in_3}] >> [${str}]"
 }
 
 test7() {
   str=$( strreplace "$str_in_4" "+" "-" )
-  echo -e "\n\t[${str_in_4}] >> [${str}]"
+  vio_echo "\n\t[${str_in_4}] >> [${str}]"
 }
 
 test8() {
   str=$( strcap "$str_in_6" )
-  echo -e "\n\t[${str_in_6}] >> [${str}]"
+  vio_echo "\n\t[${str_in_6}] >> [${str}]"
 }
 
 test9() {
   str=$( strcaptext "$str_in_5" )
-  echo -e "\n\t[${str_in_5}] >> [${str}]"
+  vio_echo "\n\t[${str_in_5}] >> [${str}]"
 }
 
 test10() {
   str=$( strcaptext "$str_in_6" )
-  echo -e "\n\t[${str_in_6}] >> [${str}]"
+  vio_echo "\n\t[${str_in_6}] >> [${str}]"
 }
 
 

@@ -21,7 +21,7 @@ call() {
 check_root() {
   if [ $EUID -ne 0 ]
   then
-    print "${BRx2}${ERROR}Esta aplicación corre con privilegios de root ... ${BRx2}"
+    vio_error "${BRx2}Esta aplicación corre con privilegios de root ... ${BRx2}"
 	  exit 1	
   fi
 }
@@ -29,7 +29,7 @@ check_root() {
 check_user() {
   if [ $EUID == 0 ]
   then
-    print "${BRx2}${ERROR}Esta aplicación NO corre con privilegios de root ${BRx2}"
+    vio_error "${BRx2}Esta aplicación NO corre con privilegios de root ${BRx2}"
 	  exit 1	
   fi
 }
