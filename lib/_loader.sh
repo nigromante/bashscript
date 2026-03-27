@@ -124,3 +124,13 @@ moduleAppName() {
         echo
     fi
 }
+
+moduleInfo() {
+    moduleVerbose
+
+    moduleAppName
+    moduleList 
+    moduleDisabledList
+
+    moduleSilent
+}

@@ -50,7 +50,7 @@ cursor_show() {
       print "${CURSOR_SHOW}"
 }
 
-upLines() {
+upln() {
   echo -en "\033[${1}A"
   # tput ed
 }

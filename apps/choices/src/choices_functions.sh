@@ -2,15 +2,6 @@
 
 PRESENTER="rofi"
 
-info() {
-    moduleVerbose
-
-    moduleAppName
-    moduleList 
-    moduleDisabledList
-
-    moduleSilent
-}
 
 all() {
   for(( itest=0;itest<${#tests[@]};itest++)); do

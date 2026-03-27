@@ -3,7 +3,7 @@
 
 choices_entry() {
   if [[ "$1" == "info" ]]; then
-    info 
+    moduleInfo 
     return
   fi
 

@@ -11,7 +11,7 @@ start() {
 
   [[ $(type -t begin ) ]] && begin 
 
-  [[ $(type -t welcome) ]] && welcome
+  [[ $(type -t layout_welcome) ]] && layout_welcome
 
   [[ $(type -t run) ]] && run
 
