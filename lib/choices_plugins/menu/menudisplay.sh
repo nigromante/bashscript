@@ -47,14 +47,14 @@ menudisplay_prepare() {
 menudisplay_layout(){
 
     if [[ $verbose == true ]]; then 
-      vio_echo "${menudisplay_titulo} ${LIGHTGRAY}(${theme}/${shape})              "
+      vio_print "${menudisplay_titulo} ${LIGHTGRAY}(${theme}/${shape})              "
     else
-      vio_echo "${menudisplay_titulo}"
+      vio_print "${menudisplay_titulo}"
     fi
 
     menudisplay_pagedown
 
-    vio_echo "${BORDER}${BOTTOM_LEFT}${menudisplay_bottom}${BOTTOM_RIGHT}${RESET}"
+    vio_print "${BORDER}${BOTTOM_LEFT}${menudisplay_bottom}${BOTTOM_RIGHT}${RESET}"
 
     menudisplay_pageup 1
 }
@@ -67,9 +67,9 @@ menudisplay_content() {
         currItem="${narr[$i]}"
 
         if [[ $i == $selectedIndex ]]; then
-            vio_echo "${BORDER}${VERTICAL_SELECT}${ICON_SELECTED}  ${MARK}  ${TEXT_SELECTED} ${currItem} ${BORDER}${VERTICAL_SELECT}${RESET}"
+            vio_print "${BORDER}${VERTICAL_SELECT}${ICON_SELECTED}  ${MARK}  ${TEXT_SELECTED} ${currItem} ${BORDER}${VERTICAL_SELECT}${RESET}"
         else
-            vio_echo "${BORDER}${VERTICAL}     ${TEXT_NORMAL} ${currItem} ${BORDER}${VERTICAL}${RESET}"
+            vio_print "${BORDER}${VERTICAL}     ${TEXT_NORMAL} ${currItem} ${BORDER}${VERTICAL}${RESET}"
         fi
 
     done 
@@ -78,12 +78,12 @@ menudisplay_content() {
 }
 
 menudisplay_cursor_up() {
-    upln "1"   # deb subir 1 linea al titulo
+    vio_upLine "1"   # deb subir 1 linea al titulo
 }
 
 menudisplay_pageup() {
     height=$(( $itemsLength + $1 ))
-    upln "${height}"
+    vio_upLine "${height}"
 }
 
 menudisplay_pagedown() {

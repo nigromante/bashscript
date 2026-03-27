@@ -21,7 +21,7 @@ nmap_neighborhood() {
     NMAP=$(nmap -v -sn $1 | grep -v "host down" | grep "report for" | awk '{print $5 $6}') 
     for OUTPUT in $NMAP
     do
-        echo -e "\t${OUTPUT}"
+        vio_print "\t${OUTPUT}"
     done
 }
 

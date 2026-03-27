@@ -17,7 +17,7 @@ start() {
 
   [[ $(type -t finish) ]] && finish 
 
-  cursor_show
+  vio_cursorShow
   
 }
 

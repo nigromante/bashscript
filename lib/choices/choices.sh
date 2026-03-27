@@ -136,7 +136,7 @@ choices_args() {
   fi
 
   if [[ $itemsLength -lt 1 ]]; then
-	  vio_echo "${ERROR}[ERROR] No menu items provided${RESET}"
+	  vio_print "${ERROR}[ERROR] No menu items provided${RESET}"
     return
   fi
 
@@ -151,53 +151,53 @@ choices_args() {
 
 # ------------------------------------ HELP
 choices_help() {
-    vio_echo
-    vio_echo "Choices Helper"
-    vio_echo
-    vio_echo "\t-h   | --help                : Show this help guide and quits"
-    vio_echo "\t-p   | --plugin              : Presenter plugin: menu(default) or rofi"
-    vio_echo "\t-o   | --options             : Menu options"
-    vio_echo "\t-l   | --labels              : Menu label options. displayed instead options when defined"
-    vio_echo "\t-i   | --index               : Set selected index. Default 0"
-    vio_echo "\t-vo  | --variable            : Set output variable name. Default 'selected'"
-    vio_echo "\t-tc  | --themecolor          : Set Color Theme"
-    vio_echo "\t-tcl | --themecolorlist      : Available Color Themes"
-    vio_echo "\t-ts  | --themeshape          : Set Shape Theme"
-    vio_echo "\t-tsl | --themeshapelist      : Available Shape Themes"
-    vio_echo "\t-T   | --title               : Set menu title"
-    vio_echo "\t-a   | --autoselect          : Return first option when is the unique option. Otherwise force confirm the selection"
-    vio_echo "\t-v   | --verbose             : Inspect internal variables for debug"
-    vio_echo
-    vio_echo "Keyboard usage"
-    vio_echo "\t<up> <down> : change option"
-    vio_echo "\t<enter>     : accept"
-    vio_echo "\t<right>     : change theme (colors)"
-    vio_echo "\t's'         : remember theme"
-    vio_echo "\t'q' <ESC>   : quit (cancel)"
-    vio_echo
+    vio_print
+    vio_print "Choices Helper"
+    vio_print
+    vio_print "\t-h   | --help                : Show this help guide and quits"
+    vio_print "\t-p   | --plugin              : Presenter plugin: menu(default) or rofi"
+    vio_print "\t-o   | --options             : Menu options"
+    vio_print "\t-l   | --labels              : Menu label options. displayed instead options when defined"
+    vio_print "\t-i   | --index               : Set selected index. Default 0"
+    vio_print "\t-vo  | --variable            : Set output variable name. Default 'selected'"
+    vio_print "\t-tc  | --themecolor          : Set Color Theme"
+    vio_print "\t-tcl | --themecolorlist      : Available Color Themes"
+    vio_print "\t-ts  | --themeshape          : Set Shape Theme"
+    vio_print "\t-tsl | --themeshapelist      : Available Shape Themes"
+    vio_print "\t-T   | --title               : Set menu title"
+    vio_print "\t-a   | --autoselect          : Return first option when is the unique option. Otherwise force confirm the selection"
+    vio_print "\t-v   | --verbose             : Inspect internal variables for debug"
+    vio_print
+    vio_print "Keyboard usage"
+    vio_print "\t<up> <down> : change option"
+    vio_print "\t<enter>     : accept"
+    vio_print "\t<right>     : change theme (colors)"
+    vio_print "\t's'         : remember theme"
+    vio_print "\t'q' <ESC>   : quit (cancel)"
+    vio_print
 }
 
 
 # ----------------------------------- COLOR
 choices_themecolor_list() {
-  vio_echo
-  vio_echo "Theme Color List"
-  vio_echo
+  vio_print
+  vio_print "Theme Color List"
+  vio_print
   if [[ $( type -t menutheme_color_getNames ) ]]; then
-      vio_echo "\t${WARNING} $( menutheme_color_getNames ) ${RESET}"
+      vio_print "\t${WARNING} $( menutheme_color_getNames ) ${RESET}"
   fi
-  vio_echo
+  vio_print
 } 
 
 # ----------------------------------- SHAPE
 choices_themeshape_list() {
-  vio_echo
-  vio_echo "Theme Shape List"
-  vio_echo
+  vio_print
+  vio_print "Theme Shape List"
+  vio_print
   if [[ $( type -t menutheme_shape_getNames ) ]]; then
-      vio_echo "\t${WARNING} $( menutheme_shape_getNames ) ${RESET}"
+      vio_print "\t${WARNING} $( menutheme_shape_getNames ) ${RESET}"
   fi
-  vio_echo
+  vio_print
 } 
 
 # ------------------------------------- RUN
@@ -211,16 +211,16 @@ choices_run() {
 choices_info() {
 
     if [[ $verbose == true ]]; then 
-      vio_echo
-      vio_echo "Menu Variables"
-      vio_echo -n "\t command line  : " 
-      vio_echo "$commandLine" 
-      vio_echo "\t plugin        : " "$plugin" 
-      vio_echo "\t theme         : " "$theme" 
-      vio_echo "\t shape         : " "$shape" 
-      vio_echo "\t inputName     : " "$inputName"
-      vio_echo "\t result        : " "$result"
-      vio_echo "\t selectedIndex : " "$selectedIndex"
+      vio_print
+      vio_print "Menu Variables"
+      vio_print -n "\t command line  : " 
+      vio_print "$commandLine" 
+      vio_print "\t plugin        : " "$plugin" 
+      vio_print "\t theme         : " "$theme" 
+      vio_print "\t shape         : " "$shape" 
+      vio_print "\t inputName     : " "$inputName"
+      vio_print "\t result        : " "$result"
+      vio_print "\t selectedIndex : " "$selectedIndex"
       arrayTrace "menuItems"
       arrayTrace  "labelItems"
       arrayTrace "remainingArgs"

@@ -1,27 +1,18 @@
 #!/bin/bash
 
 
-setColor() {
+vio_setColor() {
     echo -e -n "$1"
 }
 
 
-resetColor() {
+vio_resetColor() {
     echo -e -n "${RESET}"
 }
 
 
-nl() {
-    echo -e "${BR}"
-}
-
-vio_echo() {
+vio_print() {
     echo -e "$1"
-}
-
-
-print() {
-    echo -e "${BLANK}$1${RESET}"
 }
 
 
@@ -45,16 +36,22 @@ vio_info() {
 }
 
 
-cursor_hide() {
+vio_cursorHide() {
     echo -e -n "${CURSOR_HIDE}"
 }
 
 
-cursor_show() {
+vio_cursorShow() {
     echo -e -n "${CURSOR_SHOW}"
 }
 
-upln() {
+
+vio_nl() {
+    echo -e "${BR}"
+}
+
+
+vio_upLine() {
   echo -en "\033[${1}A"
   # tput ed
 }

@@ -8,23 +8,23 @@ layout_welcome() {
 
 layout_banner() {
   if [[ "$APP_TITLE" != "" ]]; then
-	    setColor "${GREEN}"
+	    vio_setColor "${GREEN}"
 	    figlet -f big "${APP_TITLE}"
-	    resetColor
+	    vio_resetColor
   fi
 }
 
 layout_header() {
   if [[ "$APP_AUTHOR" != "" ]]; then
 	    fecha=$(date +"%Y-%m-%d %H:%M:%S")
-	    vio_echo "${INFO}${APP_AUTHOR}  ...   ${WARNING}${fecha}${BR}"
-    	resetColor
+	    vio_print "${INFO}${APP_AUTHOR}  ...   ${WARNING}${fecha}${BR}"
+    	vio_resetColor
   fi
 }
 
 layout_title() {
   if [[ "$APP_DESCRIPTION" != "" ]]; then
-	    vio_echo "${INFO}${BR}${APP_DESCRIPTION}${BR}"
-    	resetColor
+	    vio_print "${INFO}${BR}${APP_DESCRIPTION}${BR}"
+    	vio_resetColor
   fi
 }

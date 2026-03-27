@@ -9,6 +9,5 @@ scriptdir() {
 LIBPATH="$( scriptdir )/../lib"
 export LIBPATH="$LIBPATH"
 
-echo $LIBPATH
 
 

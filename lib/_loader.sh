@@ -8,13 +8,13 @@ declare moduleVerbose=false
 moduleLoad() {
     if [[ -n "${Modules["$1"]}" ]]; then
         if [[ $moduleVerbose == true ]]; then
-            vio_echo "Module [$1] already loaded!"
+            vio_print "Module [$1] already loaded!"
         fi
         return
     fi
     if [[ -n "${ModulesDisabled["$1"]}" ]]; then
         if [[ $moduleVerbose == true ]]; then
-            vio_echo "Module [$1] disabled!"
+            vio_print "Module [$1] disabled!"
         fi
         return
     fi
@@ -28,13 +28,13 @@ moduleLoad() {
 moduleLoadLazy() {
     if [[ -n "${Modules["$1"]}" ]]; then
         if [[ $moduleVerbose == true ]]; then
-            vio_echo "Module [$1] already loaded!"
+            vio_print "Module [$1] already loaded!"
         fi
         return
     fi
     if [[ -n "${ModulesDisabled["$1"]}" ]]; then
         if [[ $moduleVerbose == true ]]; then
-            vio_echo "Module [$1] disabled!"
+            vio_print "Module [$1] disabled!"
         fi
         return
     fi
@@ -54,7 +54,7 @@ moduleLoadLocal() {
     dir=$( basename "$PWD" )
     if [[ -n "${Modules["${dir}_$1"]}" ]]; then
         if [[ $moduleVerbose == true ]]; then
-            vio_echo "Module [${dir}/$1] already loaded!"
+            vio_print "Module [${dir}/$1] already loaded!"
         fi
         return
     fi
@@ -68,7 +68,7 @@ moduleLoadLocal() {
 moduleLoadFile() {
     file="${MODULE}/$1"
     if [[ $moduleVerbose == true ]]; then
-        vio_echo "\t file : [$file]"
+        vio_print "\t file : [$file]"
     fi
     source  $file
 }
@@ -86,28 +86,28 @@ moduleSilent() {
 
 moduleList() { 
     if [[ $moduleVerbose == true ]]; then
-        vio_echo
-        vio_echo "\t Modulos cargados : " "${Modules[@]}"
-        vio_echo
+        vio_print
+        vio_print "\t Modulos cargados : " "${Modules[@]}"
+        vio_print
     fi
 }
 
 
 moduleDisabledList() { 
     if [[ $moduleVerbose == true ]]; then
-        vio_echo
-        vio_echo "\t Modulos excluidos : " "${ModulesDisabled[@]}"
-        vio_echo
+        vio_print
+        vio_print "\t Modulos excluidos : " "${ModulesDisabled[@]}"
+        vio_print
     fi
 }
 
 
 moduleListFunctions() {
     if [[ $moduleVerbose == true ]]; then
-        vio_echo
-        vio_echo "functions :"
+        vio_print
+        vio_print "functions :"
         compgen -A function
-        vio_echo
+        vio_print
     fi
 }
 
@@ -115,9 +115,9 @@ moduleListFunctions() {
 moduleAppName() {
     if [[ $moduleVerbose == true ]]; then
         name=$( basename "$0")
-        vio_echo
-        vio_echo "\t App : " "$PWD/$name"
-        vio_echo
+        vio_print
+        vio_print "\t App : " "$PWD/$name"
+        vio_print
     fi
 }
 
