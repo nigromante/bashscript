@@ -1,24 +1,24 @@
 #!/bin/bash
 
 
-getUserName() {
+sys_getUserName() {
     USERNAME=$(whoami)
     echo $USERNAME
 }
 
 
-getCurrentWorkDir() {
+sys_pwd() {
     PWD=$(pwd)
     echo $PWD
 }
 
 
-call() {
+sys_call() {
     bash "$1.sh" "$2" "$3" 
     vio_resetColor
 }
 
-check_root() {
+sys_checkRoot() {
   if [ $EUID -ne 0 ]
   then
     vio_error "${BRx2}Esta aplicación corre con privilegios de root ... ${BRx2}"
@@ -26,7 +26,7 @@ check_root() {
   fi
 }
 
-check_user() {
+sys_checkUser() {
   if [ $EUID == 0 ]
   then
     vio_error "${BRx2}Esta aplicación NO corre con privilegios de root ${BRx2}"

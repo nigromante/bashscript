@@ -3,7 +3,7 @@
 
 start() {
 
-  check_user
+  sys_checkUser
 
   clear
 

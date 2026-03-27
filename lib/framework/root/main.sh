@@ -3,7 +3,7 @@
 
 start() {
   
-  check_root 
+  sys_checkRoot 
 
   clear
 
