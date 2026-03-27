@@ -3,9 +3,9 @@
 PRESENTER="menu"
 
 begin() {
-    setAuthor       "JULIAN VIDAL A"
-    setTitle        "MPlayer Menu"
-    setDescription  " --- W E B C A M ---  Test "
+    app_setAuthor       "JULIAN VIDAL A"
+    app_setTitle        "MPlayer Menu"
+    app_setDescription  " --- W E B C A M ---  Test "
 }
 
 

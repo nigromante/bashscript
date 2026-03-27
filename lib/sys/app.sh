@@ -1,17 +1,17 @@
 #!/bin/bash
 
 
-setAuthor() {
+app_setAuthor() {
   APP_AUTHOR="$1"
 }
 
 
-setTitle() {
+app_setTitle() {
   APP_TITLE="$1"
 }
 
 
-setDescription() {
+app_setDescription() {
   APP_DESCRIPTION="$1"
 }
 

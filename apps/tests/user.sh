@@ -11,9 +11,9 @@ loader_manager() {
 
 
 begin() {
-    setAuthor       "JULIAN VIDAL A"
-    setTitle        "Module Loader"
-    setDescription  "  Modules & Functions "
+    app_setAuthor       "JULIAN VIDAL A"
+    app_setTitle        "Module Loader"
+    app_setDescription  "  Modules & Functions "
 }
 
 run() {
