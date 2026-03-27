@@ -3,8 +3,8 @@
 
 
 normalizeList() {
-  size=$( arrayGetSize "$1" )
-  length=$( arrayGetLongest "$1" )
+  size=$( array_getSize "$1" )
+  length=$( array_getLongest "$1" )
   titlength="${#2}"
   if [[ $length < $titlength ]]; then
     length=$(( $titlength - 12 ))

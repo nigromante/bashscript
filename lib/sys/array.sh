@@ -1,7 +1,7 @@
 #!/bin/bash
 
-#  length=$( arrayGetLongest "arrayName" )
-arrayGetLongest() {
+#  length=$( array_getLongest "arrayName" )
+array_getLongest() {
 	local longest=0
 	local arr=$1[@]
 	arr=("${!arr}")
@@ -14,15 +14,15 @@ arrayGetLongest() {
   echo "$longest"
 }
 
-#  size=$( arrayGetSize "arrayName" )
-arrayGetSize() {
+#  size=$( array_getSize "arrayName" )
+array_getSize() {
 	local arr=$1[@]
 	arr=("${!arr}")
   local length="${#arr[@]}"
   echo "$length"
 }
 
-arrayTrace() {
+array_trace() {
 
   lista=$1[@]
 	lista=("${!lista}")

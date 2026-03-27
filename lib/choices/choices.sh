@@ -221,9 +221,9 @@ choices_info() {
       vio_print "\t inputName     : " "$inputName"
       vio_print "\t result        : " "$result"
       vio_print "\t selectedIndex : " "$selectedIndex"
-      arrayTrace "menuItems"
-      arrayTrace  "labelItems"
-      arrayTrace "remainingArgs"
+      array_trace "menuItems"
+      array_trace  "labelItems"
+      array_trace "remainingArgs"
     fi
 }
 
