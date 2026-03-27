@@ -15,52 +15,52 @@ str_in_5="julian enrique vidal alarcon"
 str_in_6="JULian VIDAL alarcon"
 
 test1() {
-  str=$( strpadr "$str_in_1" 20 ) 
+  str=$( str_padr "$str_in_1" 20 ) 
   vio_print "\n\t[${str_in_1}] >> [${str}]"
 }
 
 test2() {
-  str=$( strpadl "$str_in_1" 20 ) 
+  str=$( str_padl "$str_in_1" 20 ) 
   vio_print "\n\t[${str_in_1}] >> [${str}]"
 }
 
 test3() {
-  str=$( strpadc "$str_in_1" 20 ) 
+  str=$( str_padc "$str_in_1" 20 ) 
   vio_print "\n\t[${str_in_1}] >> [${str}]"
 }
 
 test4() {
-  str=$( strpadc "$str_in_2" 20 ) 
+  str=$( str_padc "$str_in_2" 20 ) 
   vio_print "\n\t[${str_in_2}] >> [${str}]"
 }
 
 test5() {
-  str=$( strupper "$str_in_3" )
+  str=$( str_upper "$str_in_3" )
   vio_print "\n\t[${str_in_3}] >> [${str}]"
 }
 
 test6() {
-  str=$( strlower "$str_in_3" )
+  str=$( str_lower "$str_in_3" )
   vio_print "\n\t[${str_in_3}] >> [${str}]"
 }
 
 test7() {
-  str=$( strreplace "$str_in_4" "+" "-" )
+  str=$( str_replace "$str_in_4" "+" "-" )
   vio_print "\n\t[${str_in_4}] >> [${str}]"
 }
 
 test8() {
-  str=$( strcap "$str_in_6" )
+  str=$( str_cap "$str_in_6" )
   vio_print "\n\t[${str_in_6}] >> [${str}]"
 }
 
 test9() {
-  str=$( strcaptext "$str_in_5" )
+  str=$( str_captext "$str_in_5" )
   vio_print "\n\t[${str_in_5}] >> [${str}]"
 }
 
 test10() {
-  str=$( strcaptext "$str_in_6" )
+  str=$( str_captext "$str_in_6" )
   vio_print "\n\t[${str_in_6}] >> [${str}]"
 }
 
