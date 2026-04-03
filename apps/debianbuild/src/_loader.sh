@@ -1,6 +1,5 @@
 #!/bin/bash
 
-moduleLoadFile build_entry.sh
 moduleLoadFile prepare.sh
 
 moduleLoadFile nbd.sh

@@ -8,6 +8,7 @@ loader_manager() {
     moduleLoad dev
     moduleLoad utils
     moduleLoadLocal src
+    moduleLoadLocal mount
 }
 
 ## Usage:
