@@ -9,7 +9,7 @@ start() {
 
   trap_hideCursor
 
-  [[ $(type -t begin ) ]] && begin 
+  [[ $(type -t begin ) ]] && begin  $@
 
   [[ $(type -t layout_welcome) ]] && layout_welcome
 
