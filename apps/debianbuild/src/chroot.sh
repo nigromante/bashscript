@@ -4,17 +4,16 @@
 
 chroot_mount() {
     echo "Mounting for chroot"
-    mount $ROOT_UUID /mnt
-    [[ -d /mnt/boot/efi ]] || mkdir -p /mnt/boot/efi
-    mount $EFI_UUID /mnt/boot/efi
+    peval mount $ROOT_UUID /mnt
+    [[ -d /mnt/boot/efi ]] || peval mkdir -p /mnt/boot/efi
+    peval mount $EFI_UUID /mnt/boot/efi
 }
 
 chroot_mount_system() {
     echo "Mounting proc, dev and sys"
-    exit
-    mount -o bind,ro /dev /mnt/dev
-    mount -t proc none /mnt/proc
-    mount -t sysfs none /mnt/sys
+    peval mount -o bind,ro /dev /mnt/dev
+    peval mount -t proc none /mnt/proc
+    peval mount -t sysfs none /mnt/sys
 }
 
 chroot_umount() {
@@ -22,7 +21,7 @@ chroot_umount() {
   if [[ -z $SKIP_UNMOUNT ]]
   then
 	  echo "Unmounting chroot"
-	  umount /mnt/dev /mnt/proc /mnt/sys /mnt/boot/efi /mnt
+	  peval umount /mnt/dev /mnt/proc /mnt/sys /mnt/boot/efi /mnt
   else
 	  echo "WARNING: Unmount skipped (as requested)" >&2
 	  echo "Multiple filesystems are mounted at and under /mnt, do not forget to unmount when finished."

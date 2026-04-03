@@ -6,7 +6,7 @@ nbd_check_support() {
     if ! lsmod | grep -q '^nbd\s'
     then
 	    echo "Probing module"
-	    modprobe nbd
+	    peval modprobe nbd
     fi
 
 
@@ -20,6 +20,11 @@ nbd_check_support() {
 
 nbd_mount() {
     echo "Mounting image on $NBD_DEV"
+    peval qemu-nbd -c $NBD_DEV $FILE
+}
+
+nbd_mount_orig() {
+    echo "Mounting image on $NBD_DEV"
     cmd="qemu-nbd -c $NBD_DEV $FILE"
     echo -e "${YELLOW}[${PURPLE}$cmd${YELLOW}]${RESET}"
     eval $cmd
@@ -31,7 +36,7 @@ nbd_umount() {
   then
 	  echo "Disconnecting $NBD_DEV"
 	  sync
-	  qemu-nbd -d $NBD_DEV
+	  peval qemu-nbd -d $NBD_DEV
   else
 	  echo "WARNING: Unmount skipped (as requested)" >&2
 	  echo "Multiple filesystems are mounted at and under /mnt, do not forget to unmount when finished."

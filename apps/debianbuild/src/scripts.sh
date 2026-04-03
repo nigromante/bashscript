@@ -34,8 +34,8 @@ echo "--------------------------------------------"
 
 echo "Setting timezone"
 debconf-set-selections <<S2EOF
-tzdata tzdata/Areas select Europe
-tzdata tzdata/Zones/Europe select London
+tzdata tzdata/Areas select America
+tzdata tzdata/Zones/Europe select Santiago
 S2EOF
 # This is necessary as tzdata will assume these are manually set and override the debconf values with their settings
 rm -f /etc/localtime /etc/timezone
@@ -76,15 +76,12 @@ echo "--------------------------------------------"
 echo "Configuring apt sources"
 
 cat - >/etc/apt/sources.list <<S2EOF
-deb http://ftp.uk.debian.org/debian/ buster main
-deb-src http://ftp.uk.debian.org/debian/ buster main
-
-deb http://security.debian.org/debian-security buster/updates main
-deb-src http://security.debian.org/debian-security buster/updates main
-
-# buster-updates, previously known as 'volatile'
-deb http://ftp.uk.debian.org/debian/ buster-updates main
-deb-src http://ftp.uk.debian.org/debian/ buster-updates main
+deb http://deb.debian.org/debian bookworm main contrib non-free non-free-firmware
+deb-src http://deb.debian.org/debian bookworm main contrib non-free non-free-firmware
+deb http://deb.debian.org/debian-security/ bookworm-security main contrib non-free non-free-firmware
+deb-src http://deb.debian.org/debian-security/ bookworm-security main contrib non-free non-free-firmware
+deb http://deb.debian.org/debian bookworm-updates main contrib non-free non-free-firmware
+deb-src http://deb.debian.org/debian bookworm-updates main contrib non-free non-free-firmware
 S2EOF
 
 apt-get -qq -y update
@@ -93,10 +90,10 @@ echo "--------------------------------------------"
 
 echo "Configuring locales and keyboard"
 debconf-set-selections <<S2EOF
-locales locales/locales_to_be_generated multiselect en_GB.UTF-8 UTF-8
-locales locales/default_environment_locale select en_GB.UTF-8
-keyboard-configuration keyboard-configuration/layoutcode string gb
-keyboard-configuration keyboard-configuration/variant select English (UK)
+locales locales/locales_to_be_generated multiselect es_CL.UTF-8 UTF-8
+locales locales/default_environment_locale select es_CL.UTF-8
+keyboard-configuration keyboard-configuration/layoutcode string latam
+keyboard-configuration keyboard-configuration/variant select Latin American 
 keyboard-configuration keyboard-configuration/model select Generic 105-key PC (intl.)
 S2EOF
 # Stop anything overriding debconf's settings
@@ -153,7 +150,8 @@ scripts_run() {
     if [[ -z $SKIP_STAGE2 ]]
     then
 	    echo "Running stage 2 script in chroot"
-	    LANG=C.UTF-8 chroot /mnt /bin/bash /root/stage-2-setup.bash
+	    LANG=C.UTF-8 chroot /mnt /bin/bash
+	    # LANG=C.UTF-8 chroot /mnt /bin/bash /root/stage-2-setup.bash
 
 	    echo "Removing stage 2 script"
 	    rm /mnt/root/stage-2-setup.bash

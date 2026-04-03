@@ -14,12 +14,15 @@ run() {
     resume_values
     set -e
 
+    peval_theme_vision
+    peval_mode_debug
+
     Stage0
     Stage1
     Stage2
     Stage3
 
-    echo "Finish"
+    figlet "Finish"
 }
 
 
@@ -40,16 +43,20 @@ resume_values() {
 
 Stage0() {
   vio_setColor $YELLOW
+  figlet "Stage 0"
   hdd_create_image
   nbd_check_support
   nbd_mount
   hdd_fdisk
   hdd_format
+  nbd_umount
 }
 
 
 Stage1() {
   vio_setColor $GREEN
+  figlet "Stage 1"
+  nbd_mount
   hdd_read_UUID
   chroot_mount
   debootrap_run
@@ -59,6 +66,7 @@ Stage1() {
 
 Stage2() {
   vio_setColor $PURPLE
+  figlet "Stage 2"
   scripts_create
   # scripts_run
 }
@@ -66,6 +74,7 @@ Stage2() {
 
 Stage3() {
   vio_setColor $RED
+  figlet "Stage 3"
   chroot_umount
   nbd_umount
 }

@@ -6,7 +6,7 @@ hdd_create_image() {
     if [[ -z "$SKIP_DEBOOTSTRAP" ]]
     then
 	    echo "Creating image"
-	    qemu-img create -f qcow2 $FILE $SIZE
+	    peval qemu-img create -f qcow2 $FILE $SIZE
     else
 	    if ! [[ -f $FILE ]]
 	    then
@@ -46,6 +46,7 @@ unset ROOT_START
 # Only apply partitioning if not skipping debootstrap
 if [[ -z "$SKIP_DEBOOTSTRAP" ]]
 then
+  vio_info "$PARTED_COMMANDS"
 	parted -s -a optimal -- $NBD_DEV \
 		$PARTED_COMMANDS
 	unset PARTED_COMMANDS
@@ -62,14 +63,14 @@ hdd_format() {
     then
 	    echo "Formating:"
 	    echo "...EFI partition"
-	    mkfs -t fat -F 32 -n EFI ${NBD_DEV}p1
+	    peval mkfs -t fat -F 32 -n EFI ${NBD_DEV}p1
 	    if [[ -z $NO_SWAP ]]
 	    then
 		    echo "...swap"
-		    mkswap -L swap ${NBD_DEV}p2
+		    peval mkswap -L swap ${NBD_DEV}p2
 	    fi
 	    echo "...root"
-	    mkfs -t ext4 -L root ${NBD_DEV}p${ROOT_PART}
+	    peval mkfs -t ext4 -L root ${NBD_DEV}p${ROOT_PART}
     fi
     unset ROOT_PART
 }
@@ -80,8 +81,8 @@ hdd_read_UUID() {
     [[ -z $NO_SWAP ]] && SWAP_UUID="$(blkid | grep "^${NBD_DEV}p[0-9]\+:" | grep ' LABEL="swap" ' | grep -o ' UUID="[^"]\+"' | sed -e 's/^ //' )"
     EFI_UUID="$(blkid | grep "^${NBD_DEV}p[0-9]\+:" | grep ' LABEL="EFI" ' | grep -o ' UUID="[^"]\+"' | sed -e 's/^ //' )"
 
-    echo "Root: $ROOT_UUID"
-    [[ -z $NO_SWAP ]] && echo "swap: $SWAP_UUID"
-    echo "EFI: $EFI_UUID"
+    vio_info "Root: $ROOT_UUID"
+    [[ -z $NO_SWAP ]] && vio_info "swap: $SWAP_UUID"
+    vio_info "EFI: $EFI_UUID"
 }
 

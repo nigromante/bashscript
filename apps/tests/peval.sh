@@ -4,6 +4,7 @@ source ${LIBPATH}/_loader.sh
 
 loader_manager() {
     moduleLoad sys 
+    moduleLoad dev 
 }
 
 loader_manager
