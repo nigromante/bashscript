@@ -11,6 +11,7 @@ chroot_mount() {
 
 chroot_mount_system() {
     echo "Mounting proc, dev and sys"
+    exit
     mount -o bind,ro /dev /mnt/dev
     mount -t proc none /mnt/proc
     mount -t sysfs none /mnt/sys

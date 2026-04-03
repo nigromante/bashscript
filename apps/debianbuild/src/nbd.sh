@@ -20,7 +20,9 @@ nbd_check_support() {
 
 nbd_mount() {
     echo "Mounting image on $NBD_DEV"
-    qemu-nbd -c $NBD_DEV $FILE
+    cmd="qemu-nbd -c $NBD_DEV $FILE"
+    echo -e "${YELLOW}[${PURPLE}$cmd${YELLOW}]${RESET}"
+    eval $cmd
 }
 
 

@@ -10,3 +10,4 @@ moduleLoadFile kbd.sh
 moduleLoadFile sys.sh
 moduleLoadFile net.sh
 moduleLoadFile globals.sh
+moduleLoadFile peval.sh
