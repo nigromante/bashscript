@@ -10,5 +10,16 @@ loader_manager
 
 
 peval_theme_vision
-peval "ls -al"
+peval ls -a
+
+peval_theme_none
+peval_mode_result
+rr=$( peval ls )
+echo "rr : [$rr]"
+echo
+
+peval_theme_vision
+peval_mode_command
+peval ls -al | grep cmd
+
 
