@@ -9,6 +9,6 @@ loader_manager() {
 loader_manager
 
 
+peval_theme_vision
 peval "ls -al"
-
 
