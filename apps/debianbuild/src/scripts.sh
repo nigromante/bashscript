@@ -83,7 +83,7 @@ deb http://deb.debian.org/debian bookworm-updates main contrib non-free non-free
 deb-src http://deb.debian.org/debian bookworm-updates main contrib non-free non-free-firmware
 S2EOF
 
-apt-get -qq -y update
+apt -qq -y update
 
 echo "--------------------------------------------"
 
@@ -97,17 +97,17 @@ keyboard-configuration keyboard-configuration/model select Generic 105-key PC (i
 S2EOF
 # Stop anything overriding debconf's settings
 rm -f /etc/default/locale /etc/locale.gen /etc/default/keyboard
-apt-get -qq -y install locales console-setup
+apt -qq -y install locales console-setup
 
 echo "--------------------------------------------"
 
 echo "Installing kernel"
-apt-get -qq -y install linux-image-amd64
+apt -qq -y install linux-image-amd64
 
 echo "--------------------------------------------"
 
 echo "Installing bootloader"
-apt-get -qq -y install grub-efi efibootmanager
+apt -qq -y install grub-efi-amd64
 grub-install  /dev/nbd0
 update-grub
 
@@ -121,12 +121,13 @@ echo "--------------------------------------------"
 if [[ -n '$ROOT_PASSWD' ]]
 then
 	echo "Setting root password"
-	echo 'root:$ROOT_PASSWD' | chpasswd -e
+	echo "root:$ROOT_PASSWD" 
+	echo "root:$ROOT_PASSWD" | chpasswd 
 	echo "--------------------------------------------"
 fi
 
 echo "Tidying..."
-apt-get clean
+apt clean
 
 echo "=== STAGE 2 SUCCESSFULLY REACHED THE END ==="
 EOF
@@ -139,11 +140,10 @@ scripts_run() {
     if [[ -z $SKIP_STAGE2 ]]
     then
 	    echo "Running stage 2 script in chroot"
-	    LANG=C.UTF-8 chroot /mnt /bin/bash
-	    # LANG=C.UTF-8 chroot /mnt /bin/bash /root/stage-2-setup.bash
+	    LANG=C.UTF-8 chroot /mnt /bin/bash /root/stage-2-setup.bash
 
 	    echo "Removing stage 2 script"
-	    rm /mnt/root/stage-2-setup.bash
+	    # rm /mnt/root/stage-2-setup.bash
     else
 	    echo "Skipping stage 2, script has been writtn to /mnt/root/stage-2-setup.bash"
     fi

@@ -7,13 +7,15 @@
 
 source ${LIBPATH}/_loader.sh
 
-loader_manager() {
+
+loader_manager() { 
     moduleLoad framework/root
     moduleLoad sys
     moduleLoad dev
     moduleLoad utils
     moduleLoadLocal src
 }
+
 
 begin() {
     app_setAuthor       "JULIAN VIDAL A"
@@ -32,7 +34,6 @@ run() {
 }
 
 
-set -e
 loader_manager
 start $@
 

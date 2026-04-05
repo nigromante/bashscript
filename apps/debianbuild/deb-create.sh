@@ -80,7 +80,7 @@ Stage2() {
   vio_setColor $PURPLE
   figlet "Stage 2"
   scripts_create
-  # scripts_run
+  scripts_run
 }
 
 
@@ -92,7 +92,6 @@ Stage3() {
 }
 
 
-set -e
 loader_manager
 start $@
 

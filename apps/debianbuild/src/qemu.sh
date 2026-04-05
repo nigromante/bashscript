@@ -42,6 +42,7 @@ qemu_run() {
   -drive file=$FILE,format=qcow2 \
   -netdev user,id=net0,hostfwd=tcp::2222-:22 \
   -device e1000,netdev=net0 \
-  -display default,show-cursor=on
+  -display default,show-cursor=on \
+  -bios  /usr/share/OVMF/OVMF_CODE_4M.fd
 
 }
