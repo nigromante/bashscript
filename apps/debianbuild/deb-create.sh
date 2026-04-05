@@ -14,7 +14,6 @@ loader_manager() {
     moduleLoad dev
     moduleLoad utils
     moduleLoadLocal src
-    moduleLoadLocal create
 }
 
 
