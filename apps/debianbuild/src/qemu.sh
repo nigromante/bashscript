@@ -34,4 +34,14 @@ qemu_nbd_umount() {
   fi
 }
 
+qemu_run() {
 
+  peval qemu-system-x86_64 \
+  -m 2G \
+  -smp 2 \
+  -drive file=$FILE,format=qcow2 \
+  -netdev user,id=net0,hostfwd=tcp::2222-:22 \
+  -device e1000,netdev=net0 \
+  -display default,show-cursor=on
+
+}

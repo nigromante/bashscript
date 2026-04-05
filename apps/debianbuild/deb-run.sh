@@ -1,8 +1,8 @@
 #!/bin/bash
 
 ## Usage:
-#       export root_pass=secret
-#       sudo --preserve-env=root_pass ../../launch/run.sh ./deb-image.sh -r root_pass -s bookworm
+#
+#       sudo ../../launch/run.sh ./deb-run.sh  -f ../../tmp/debian.qcow2
 #
 
 source ${LIBPATH}/_loader.sh
@@ -18,7 +18,7 @@ loader_manager() {
 begin() {
     app_setAuthor       "JULIAN VIDAL A"
     app_setTitle        "Debian VM debootstrap"
-    app_setDescription  " --- MOUNT IMAGE --- "
+    app_setDescription  " --- RUN DEBIAN IMAGE --- "
 
     proc_args $@
 
@@ -28,14 +28,11 @@ begin() {
 
 
 run() {
-    nbd_check_support
-    qemu_nbd_mount
-    hdd_read_UUID
-    chroot_mount
-    chroot_mount_system
+    qemu_run
 }
 
 
 set -e
 loader_manager
 start $@
+
