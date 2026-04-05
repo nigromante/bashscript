@@ -44,19 +44,19 @@ resume_values() {
 Stage0() {
   vio_setColor $YELLOW
   figlet "Stage 0"
-  hdd_create_image
+  qemu_create_image
   nbd_check_support
-  nbd_mount
+  qemu_nbd_mount
   hdd_fdisk
   hdd_format
-  nbd_umount
+  qemu_nbd_umount
 }
 
 
 Stage1() {
   vio_setColor $GREEN
   figlet "Stage 1"
-  nbd_mount
+  qemu_nbd_mount
   hdd_read_UUID
   chroot_mount
   debootrap_run
@@ -76,6 +76,6 @@ Stage3() {
   vio_setColor $RED
   figlet "Stage 3"
   chroot_umount
-  nbd_umount
+  qemu_nbd_umount
 }
 

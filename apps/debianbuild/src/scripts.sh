@@ -46,7 +46,6 @@ echo "--------------------------------------------"
 echo "Configuring networking"
 echo "...lo"
 cat - >>/etc/network/interaces <<S2EOF
-
 auto lo
 iface lo inet loopback
 S2EOF
@@ -108,14 +107,8 @@ apt-get -qq -y install linux-image-amd64
 echo "--------------------------------------------"
 
 echo "Installing bootloader"
-apt-get -qq -y install grub-efi-amd64
-# Add console=ttyS0 so we get early boot messages on the serial console.
-sed -i -e 's/^\\(GRUB_CMDLINE_LINUX="[^"]*\\)"$/\\1 console=ttyS0"/' /etc/default/grub
-cat - >>/etc/default/grub <<S2EOF
-GRUB_TERMINAL="serial"
-GRUB_SERIAL_COMMAND="serial --unit=0 --speed=9600 --stop=1"
-S2EOF
-grub-install --target=x86_64-efi
+apt-get -qq -y install grub-efi efibootmanager
+grub-install  /dev/nbd0
 update-grub
 
 echo "Copying fallback bootloader"
@@ -124,10 +117,6 @@ cp /boot/efi/EFI/debian/fbx64.efi /boot/efi/EFI/BOOT/bootx64.efi
 
 echo "--------------------------------------------"
 
-echo "Enabling serial console"
-systemctl enable serial-getty@ttyS0.service
-
-echo "--------------------------------------------"
 
 if [[ -n '$ROOT_PASSWD' ]]
 then

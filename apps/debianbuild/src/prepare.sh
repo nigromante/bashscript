@@ -11,7 +11,6 @@ DEFAULT_DOMAIN="$( hostname )"
 # partitions and reserved space, so 753 takes us to the 1024MiB (1GiB)
 # position on the disk (1(reserved) + 270(efi) + 753(swap) = 1024MiB = 1GiB)
 DEFAULT_SWAP=753
-# An be in any format recognised by qemu-img - note sizes (K, M, G, T) are KiB not KB.
 DEFAULT_SIZE="5G"
 
 
@@ -30,7 +29,7 @@ Usage: $0 [-hSDM] [-s suite] [-f file] [-z size] [-r passwd] [name]
 -s suite:  the Debian suite to build, defaults to $DEFAULT_SUITE (taken from
            first line matching /^deb / in /etc/apt/sources.list).
 -f file:   filename for the image, defaults to <name>.qcow2
--z size:   Size of the image, in a format understood by the qemu-img command.
+-z size:   Size of the image.
            Defaults to $DEFAULT_SIZE, first 1GiB is entirely consumed by boot and swap
            partitions.
 -w size:   Size of the image's swap partition in MiB (set to 0 to disable),

@@ -18,7 +18,6 @@ run() {
     peval_mode_debug
 
     Stage1
-    Stage2
 
     figlet "Finish"
 }
@@ -41,17 +40,10 @@ resume_values() {
 Stage1() {
   vio_setColor $GREEN
   figlet "Stage 1"
-  nbd_mount
+  nbd_check_support
+  qemu_nbd_mount
   hdd_read_UUID
   chroot_mount
   chroot_mount_system
-}
-
-
-Stage2() {
-  vio_setColor $RED
-  figlet "Stage 3"
-  chroot_umount
-  nbd_umount
 }
 

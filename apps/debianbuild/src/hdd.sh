@@ -1,20 +1,6 @@
 #!/usr/bin/env bash
 
 
-hdd_create_image() {
-    # Create image file, unless reusing an existing one
-    if [[ -z "$SKIP_DEBOOTSTRAP" ]]
-    then
-	    echo "Creating image"
-	    peval qemu-img create -f qcow2 $FILE $SIZE
-    else
-	    if ! [[ -f $FILE ]]
-	    then
-		    echo "Cannot skip debootstrap if the image does not exist." >&2
-		    exit 1
-	    fi
-    fi
-}
 
 
 
