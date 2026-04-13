@@ -2,7 +2,7 @@
 
 ## Usage:
 #
-#       sudo ../../launch/run.sh ./deb-run.sh  -f ../../tmp/debian.qcow2
+#       sudo ../../launch/run.sh ./run.sh  -f ../../tmp/debian.qcow2
 #
 
 source ${LIBPATH}/_loader.sh

@@ -2,7 +2,7 @@
 
 ## Usage:
 #       export root_pass=secret
-#       sudo --preserve-env=root_pass ../../launch/run.sh ./deb-image.sh -r root_pass -s bookworm
+#       sudo --preserve-env=root_pass ../../launch/run.sh ./create.sh -r root_pass -s bookworm
 #
 
 source ${LIBPATH}/_loader.sh

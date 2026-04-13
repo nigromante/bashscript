@@ -2,7 +2,7 @@
 
 ## Usage:
 #
-#       sudo ../../launch/run.sh ./deb-umount.sh  -f ../../tmp/debian.qcow2
+#       sudo ../../launch/run.sh ./umount.sh  -f ../../tmp/debian.qcow2
 #
 
 source ${LIBPATH}/_loader.sh
