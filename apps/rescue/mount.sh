@@ -28,7 +28,7 @@ begin() {
 
 run() {
     
-    mount_device
+    mount_device $@
 
 }
 
