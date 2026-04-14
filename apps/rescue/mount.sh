@@ -2,7 +2,7 @@
 
 ## Usage:
 #
-#       sudo ../../launch/run.sh ./mount.sh
+#       sudo ../../launch/run.sh ./mount.sh /dev/sdb2
 #
 
 source ${LIBPATH}/_loader.sh
