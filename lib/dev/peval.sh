@@ -16,8 +16,8 @@ peval_theme_vision() {
   PEVALTHEME_CMD=$PURPLE
   PEVALTHEME_RESULT=$GREEN
   PEVALTHEME_ERROR=$RED
-  PEVALTHEME_OPEN_LEFT=" --- cmd: [ "
-  PEVALTHEME_OPEN_RIGHT=" ] --- "
+  PEVALTHEME_OPEN_LEFT=" --- cmd: [ \n"
+  PEVALTHEME_OPEN_RIGHT="\n ] --- "
   PEVALTHEME_CLOSE="\n--- X ---\n"
 }
 
@@ -62,16 +62,18 @@ peval_mode_debug
 peval() {
 
   cmd="$@"
+  cmdtext="$@"
   result=""
   rcode=9999
   
   # print command
-  [[ $peval_print == true ]] &&    echo -e "${PEVALTHEME_FRAME}${PEVALTHEME_OPEN_LEFT}${PEVALTHEME_CMD}$cmd${PEVALTHEME_FRAME}${PEVALTHEME_OPEN_RIGHT}${RESET}"
+  cmdtext=$( echo "$cmdtext" | sed 's/\ -/\n\t-/g' )
+  [[ $peval_print == true ]] &&    echo -e "${PEVALTHEME_FRAME}${PEVALTHEME_OPEN_LEFT}${PEVALTHEME_CMD}$cmdtext${PEVALTHEME_FRAME}${PEVALTHEME_OPEN_RIGHT}${RESET}"
 
   # execute
   [[ $peval_exec == true ]] &&  result=$( eval "$cmd" ) && rcode=$?
 
-  # result
+  # result$cmd
   [[ $peval_print_result == true && $rcode == 9999 ]] && echo -e "${PEVALTHEME_ERROR}error al ejecutar comando${PEVALTHEME_FRAME}${PEVALTHEME_CLOSE}${RESET}" &&  exit 1 
   [[ $peval_print_result == true && !($rcode == 0) ]] && echo -e "${PEVALTHEME_ERROR}${result}${PEVALTHEME_FRAME}${PEVALTHEME_CLOSE}${RESET}" && exit 1 
   [[ $peval_print_result == true && $rcode == 0 ]]    && echo -e "${PEVALTHEME_RESULT}${result}${PEVALTHEME_FRAME}${PEVALTHEME_CLOSE}${RESET}"

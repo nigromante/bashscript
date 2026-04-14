@@ -1,45 +1,46 @@
 #!/usr/bin/env bash
 
 
-
-
-
 hdd_fdisk() {
-PARTED_COMMANDS="mklabel gpt \
-mkpart primary fat32 1MiB $(( 1 + EFI_SIZE ))MiB \
-name 1 uefi \
-set 1 esp on"
-if [[ $SWAP_SIZE == 0 ]]
-then
-	echo "Skipping swap"
-	NO_SWAP="no-swap"
-	ROOT_PART=2
-	ROOT_START="$(( 1 + EFI_SIZE ))MiB"
-else
-	echo "Partitoning with ${SWAP_SIZE}MiB for swap and rest for root"
+
+	PARTED_COMMANDS="mklabel gpt \
+		mkpart primary fat32 1MiB $(( 1 + EFI_SIZE ))MiB \
+		name 1 uefi \
+		set 1 esp on"
+
+	if [[ $SWAP_SIZE == 0 ]]
+	then
+		echo "Skipping swap"
+		NO_SWAP="no-swap"
+		ROOT_PART=2
+		ROOT_START="$(( 1 + EFI_SIZE ))MiB"
+	else
+		echo "Partitoning with ${SWAP_SIZE}MiB for swap and rest for root"
+		PARTED_COMMANDS="$PARTED_COMMANDS \
+			mkpart primary linux-swap $(( 1 + EFI_SIZE ))MiB $(( 1 + EFI_SIZE + SWAP_SIZE ))MiB \
+			name 2 swap"
+		ROOT_PART=3
+		ROOT_START="$(( 1 + EFI_SIZE + SWAP_SIZE ))MiB"
+	fi
+
 	PARTED_COMMANDS="$PARTED_COMMANDS \
-mkpart primary linux-swap $(( 1 + EFI_SIZE ))MiB $(( 1 + EFI_SIZE + SWAP_SIZE ))MiB \
-name 2 swap"
-	ROOT_PART=3
-	ROOT_START="$(( 1 + EFI_SIZE + SWAP_SIZE ))MiB"
-fi
+		mkpart primary ext4 $ROOT_START -0 \
+		name $ROOT_PART root"
 
-PARTED_COMMANDS="$PARTED_COMMANDS \
-mkpart primary ext4 $ROOT_START -0 \
-name $ROOT_PART root"
-unset ROOT_START
+	unset ROOT_START
 
-# Only apply partitioning if not skipping debootstrap
-if [[ -z "$SKIP_DEBOOTSTRAP" ]]
-then
-  vio_info "$PARTED_COMMANDS"
-	parted -s -a optimal -- $NBD_DEV \
-		$PARTED_COMMANDS
-	unset PARTED_COMMANDS
-fi
+	# Only apply partitioning if not skipping debootstrap
+	if [[ -z "$SKIP_DEBOOTSTRAP" ]]
+	then
+		vio_info "$PARTED_COMMANDS"
+		parted -s -a optimal -- $NBD_DEV \
+			$PARTED_COMMANDS
+			
+		unset PARTED_COMMANDS
+	fi
 
-echo "Partitioned disk:"
-parted -s $NBD_DEV print
+	echo "Partitioned disk:"
+	parted -s $NBD_DEV print
 }
 
 

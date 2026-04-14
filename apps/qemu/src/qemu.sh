@@ -34,15 +34,35 @@ qemu_nbd_umount() {
   fi
 }
 
+
 qemu_run() {
 
-  peval qemu-system-x86_64 \
-  -m 2G \
-  -smp 2 \
-  -drive file=$FILE,format=qcow2 \
-  -netdev user,id=net0,hostfwd=tcp::2222-:22 \
-  -device e1000,netdev=net0 \
-  -display default,show-cursor=on \
-  -bios  /usr/share/OVMF/OVMF_CODE_4M.fd
+    VM="${WORKDIR}/${FULLNAME}"
+
+    if ! test -e "$VM.varstore"; then
+      peval  cp /usr/share/OVMF/OVMF_VARS_4M.fd "$VM.varstore"
+    fi
+
+    if ! test -e "$VM.qcow2"; then
+      echo "${VM}.qcow2 :: no existe !!! "
+      return
+    fi
+
+    peval   qemu-system-x86_64 \
+      -enable-kvm \
+      -cpu host \
+      -m 2G \
+      -smp 2 \
+      -drive if=pflash,unit=0,format=raw,file=/usr/share/OVMF/OVMF_CODE_4M.fd \
+      -drive if=pflash,unit=1,format=raw,file="$VM.varstore" \
+      -boot menu=on,splash-time=3000 \
+      -drive id=disk,if=none,format=qcow2,file="$VM.qcow2"  \
+      -device ide-hd,bus=ide.0,unit=0,drive=disk,bootindex=1 
+      
+      #\
+      #-net nic,model=virtio -net user \
+      #-netdev bridge,id=hn1,br=br0 \
+      #-device virtio-net,netdev=hn1,mac=e6:c8:ff:09:76:99 
+
 
 }

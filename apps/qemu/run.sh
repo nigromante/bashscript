@@ -30,9 +30,23 @@ begin() {
 
 
 run() {
+    resume_values
     qemu_run
 }
 
+resume_values() {
+    echo "size                 : $SIZE" 
+    echo "hostname             : $NAME"
+    echo "file                 : $FILE" 
+    echo "suite                : $SUITE"
+    echo "host name            : $DOMAIN_NAME"
+    echo "swap size            : $SWAP_SIZE"
+    echo "root password        : $ROOT_PASSWD"
+    echo "debootstrap          : $SKIP_DEBOOTSTRAP"
+    echo "run install scripts  : $SKIP_STAGE2"
+    echo "umount               : $SKIP_UNMOUNT"
+    echo "fullname             : $FULLNAME"
+}
 
 loader_manager
 start $@
