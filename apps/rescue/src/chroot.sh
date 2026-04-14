@@ -53,8 +53,7 @@ mount_device() {
 
   # Mount tools folder
   if [ ! -e "$target" ]; then
-    echo creating $target
-    mkdir -p "$target/rescue"
+    peval mkdir -p "$target/rescue"
   fi
   peval sudo mount --bind $tools  ${target}/mnt/rescue
 

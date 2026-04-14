@@ -9,7 +9,7 @@ source ${LIBPATH}/_loader.sh
 
 
 loader_manager() {
-    moduleLoad target&framework/root
+    moduleLoad framework/root
     moduleLoad sys
     moduleLoad dev
     moduleLoadLocal src
@@ -28,7 +28,7 @@ begin() {
 
 run() {
     
-    umount_device
+    umount_device $@
     
 }
 
