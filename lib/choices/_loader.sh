@@ -1,3 +1,3 @@
 #!/bin/bash
 
-moduleLoadFile choices.sh
+ldr_insfile choices.sh

@@ -1,3 +1,3 @@
 #!/bin/bash
 
-moduleLoadFile mplayer_entry.sh
+ldr_insfile mplayer_entry.sh

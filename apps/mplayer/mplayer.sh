@@ -3,11 +3,11 @@
 source ${LIBPATH}/_loader.sh
 
 loader_manager() {
-    moduleLoad framework/user
-    moduleLoad sys
-    moduleLoad choices
-    moduleLoad utils
-    moduleLoadLocal src
+    ldr_insmod framework/user
+    ldr_insmod sys
+    ldr_insmod choices
+    ldr_insmod utils
+    ldr_insmod_local src
 }
 
 

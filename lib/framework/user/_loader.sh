@@ -1,4 +1,4 @@
 #!/bin/bash
 
-moduleLoadFile layout.sh
-moduleLoadFile main.sh
+ldr_insfile layout.sh
+ldr_insfile main.sh

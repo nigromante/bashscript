@@ -1,11 +1,11 @@
 #!/bin/bash
 
-moduleLoadFile prepare.sh
+ldr_insfile prepare.sh
 
-moduleLoadFile nbd.sh
-moduleLoadFile hdd.sh
-moduleLoadFile chroot.sh
-moduleLoadFile qemu.sh
-moduleLoadFile debootstrap.sh
+ldr_insfile nbd.sh
+ldr_insfile hdd.sh
+ldr_insfile chroot.sh
+ldr_insfile qemu.sh
+ldr_insfile debootstrap.sh
 
-moduleLoadFile scripts.sh
+ldr_insfile scripts.sh

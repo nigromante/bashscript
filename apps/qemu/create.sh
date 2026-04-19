@@ -9,11 +9,11 @@ source ${LIBPATH}/_loader.sh
 
 
 loader_manager() {
-    moduleLoad framework/root
-    moduleLoad sys
-    moduleLoad dev
-    moduleLoad utils
-    moduleLoadLocal src
+    ldr_insmod framework/root
+    ldr_insmod sys
+    ldr_insmod dev
+    ldr_insmod utils
+    ldr_insmod_local src
 }
 
 

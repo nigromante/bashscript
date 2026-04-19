@@ -1,7 +1,7 @@
 #!/bin/bash
 
 menutheme_shape_config() {
-  CONFIG="$(pwd)/.config/theme.shape"
+  CONFIG="$(sys_appWorkDir)/.config/theme.shape"
 }
 
 

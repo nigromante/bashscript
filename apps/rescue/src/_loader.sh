@@ -1,4 +1,4 @@
 #!/bin/bash
 
 
-moduleLoadFile chroot.sh
+ldr_insfile chroot.sh

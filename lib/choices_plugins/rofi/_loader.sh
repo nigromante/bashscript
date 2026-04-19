@@ -1,5 +1,5 @@
 #!/bin/bash
 
-# moduleDisable choices_plugins/menu
+# ldr_mod_disable choices_plugins/menu
 
-moduleLoadFile choices_menu.sh
+ldr_insfile choices_menu.sh

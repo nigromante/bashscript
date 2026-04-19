@@ -1,3 +1,3 @@
 #!/bin/bash
 
-moduleLoadFile peval.sh
+ldr_insfile peval.sh

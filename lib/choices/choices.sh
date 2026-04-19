@@ -202,7 +202,7 @@ choices_themeshape_list() {
 
 # ------------------------------------- RUN
 choices_run() {
-    moduleLoadLazy "choices_plugins/${plugin}"
+    ldr_insmod_lazy "choices_plugins/${plugin}"
     eval "${plugin}_menu_loader"
     eval "${plugin}_menu_run"
 }

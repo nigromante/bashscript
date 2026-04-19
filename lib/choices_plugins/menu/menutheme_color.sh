@@ -1,7 +1,7 @@
 #!/bin/bash
 
 menutheme_color_config() {
-  CONFIG="$(pwd)/.config/theme.color"
+  CONFIG="$(sys_appWorkDir)/.config/theme.color"
 }
 
 

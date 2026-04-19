@@ -3,17 +3,20 @@
 source ${LIBPATH}/_loader.sh
 
 loader_manager() {
-    moduleLoad framework/user
-    moduleLoad sys
-    moduleLoad choices
-    moduleLoad utils
+    ldr_mod_verbose
+    ldr_insmod sys
+    ldr_insmod sys
+    ldr_mod_disable choices
+    ldr_insmod framework/user
+    ldr_insmod choices
+    ldr_insmod utils
 }
 
 
 begin() {
-    moduleVerbose
-    moduleList
-    moduleListFunctions
+
+    moduleInfo
+
 }
 
 

@@ -1,5 +1,5 @@
 #!/bin/bash
 
-moduleLoadFile mplayer.sh
-moduleLoadFile ssh_tools.sh
+ldr_insfile mplayer.sh
+ldr_insfile ssh_tools.sh
 

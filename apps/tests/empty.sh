@@ -3,8 +3,8 @@
 source ${LIBPATH}/_loader.sh
 
 loader_manager() {
-    moduleLoad sys
-    moduleLoad framework/user
+    ldr_insmod sys
+    ldr_insmod framework/user
 }
 
 

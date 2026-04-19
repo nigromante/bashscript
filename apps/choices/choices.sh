@@ -3,9 +3,9 @@
 source ${LIBPATH}/_loader.sh
 
 choices_test_loader_manager() {
-    moduleLoad choices 
-    moduleLoad sys
-    moduleLoadLocal src
+    ldr_insmod choices 
+    ldr_insmod sys
+    ldr_insmod_local src
 }
 
 choices_test_loader_manager

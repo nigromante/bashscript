@@ -1,14 +1,14 @@
 #!/bin/bash
 
-# moduleDisable choices_plugins/rofi
+# ldr_mod_disable choices_plugins/rofi
 
-moduleLoadFile choices_menu.sh
-moduleLoadFile menu.sh
-moduleLoadFile menu_menudisplay.sh
-moduleLoadFile menudisplay.sh
-moduleLoadFile menutheme_color.sh
-moduleLoadFile menutheme_color_list.sh
-moduleLoadFile menutheme_shape.sh
-moduleLoadFile menutheme_shape_list.sh
-moduleLoadFile menuutils.sh
+ldr_insfile choices_menu.sh
+ldr_insfile menu.sh
+ldr_insfile menu_menudisplay.sh
+ldr_insfile menudisplay.sh
+ldr_insfile menutheme_color.sh
+ldr_insfile menutheme_color_list.sh
+ldr_insfile menutheme_shape.sh
+ldr_insfile menutheme_shape_list.sh
+ldr_insfile menuutils.sh
 

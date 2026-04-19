@@ -5,7 +5,7 @@ start() {
 
   sys_checkUser
 
-  clear
+#  clear
 
   trap_hideCursor
 

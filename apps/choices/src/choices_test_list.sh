@@ -16,10 +16,10 @@ choices_test_themeshape_list() {
 }
 
 choices_test_includes() {
-    moduleVerbose
-    moduleList
-    moduleListFunctions
-    moduleSilent
+    ldr_mod_verbose
+    ldr_mod_list
+    ldr_mod_list_functions
+    ldr_mod_silent
 }
 
 choices_test_no_args() {
@@ -63,10 +63,10 @@ choices_test_clean() {
   if [[ "$salida" != "" ]]; then
     vio_print "\t Resultado  : " "[${SUCCESS}${salida}${RESET}]"
   fi
-    moduleVerbose
-    moduleList
-    moduleListFunctions
-    moduleSilent
+    ldr_mod_verbose
+    ldr_mod_list
+    ldr_mod_list_functions
+    ldr_mod_silent
 }
 
 choices_test_no_impl() {

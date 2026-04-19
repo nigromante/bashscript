@@ -3,10 +3,10 @@
 source ${LIBPATH}/_loader.sh
 
 loader_manager() {
-    moduleLoad framework/root
-    moduleLoad sys
-    moduleLoad choices
-    moduleLoad utils
+    ldr_insmod framework/root
+    ldr_insmod sys
+    ldr_insmod choices
+    ldr_insmod utils
 }
 
 
@@ -17,8 +17,8 @@ begin() {
 }
 
 run() {
-    moduleVerbose
-    moduleList
+    ldr_mod_verbose
+    ldr_mod_list
 }
 
 loader_manager

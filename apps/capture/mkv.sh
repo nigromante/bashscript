@@ -1,25 +1,20 @@
 #!/bin/bash
 
-## Usage:
-#
-#       sudo ../../launch/run.sh ./mount.sh /dev/sdb2
-#
-
 source ${LIBPATH}/_loader.sh
 
 
 loader_manager() {
-    ldr_insmod framework/root
+    ldr_insmod framework/user
     ldr_insmod sys
     ldr_insmod dev
-    ldr_insmod_local src
+    ldr_insmod utils
 }
 
 
 begin() {
     app_setAuthor       "JULIAN VIDAL A"
-    app_setTitle        "Linux Rescue"
-    app_setDescription  " --- MOUNT IMAGE --- "
+    app_setTitle        "ffmpeg"
+    app_setDescription  " --- CAPTURE VIDEO  --- "
 
     peval_theme_vision
     peval_mode_debug
@@ -27,11 +22,12 @@ begin() {
 
 
 run() {
-    
-    mount_device $@
+
+  capture_video
 
 }
 
 
 loader_manager
 start $@
+

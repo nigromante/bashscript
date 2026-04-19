@@ -1,12 +1,12 @@
 #!/bin/bash
 
-moduleLoadFile const.sh
-moduleLoadFile app.sh
-moduleLoadFile string.sh
-moduleLoadFile array.sh
-moduleLoadFile vio.sh
-moduleLoadFile trap.sh
-moduleLoadFile kbd.sh
-moduleLoadFile sys.sh
-moduleLoadFile net.sh
-moduleLoadFile globals.sh
+ldr_insfile const.sh
+ldr_insfile app.sh
+ldr_insfile string.sh
+ldr_insfile array.sh
+ldr_insfile vio.sh
+ldr_insfile trap.sh
+ldr_insfile kbd.sh
+ldr_insfile sys.sh
+ldr_insfile net.sh
+ldr_insfile globals.sh

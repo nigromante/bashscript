@@ -1,7 +1,7 @@
 #!/bin/bash
 
 DEFAULT_SRC="/dev/sdb2"
-DEFAULT_TARGET="/mnt/otherlinux"
+DEFAULT_TARGET="/mnt"
 
 
 getMediaDevice() {
@@ -43,7 +43,7 @@ mount_device() {
   show_params
 
   # Mount Devices
-  peval sudo  umount  $src
+  # peval sudo  umount  $src
   peval sudo  mount  $src  ${target}
 
   for dev in /dev /dev/pts /proc /sys /run; do
@@ -55,7 +55,7 @@ mount_device() {
   if [ ! -e "$target" ]; then
     peval mkdir -p "$target/rescue"
   fi
-  peval sudo mount --bind $tools  ${target}/mnt/rescue
+  peval sudo mount --bind $tools  ${target}/rescue
 
   # Chroot
   peval  sudo  chroot  ${target}
