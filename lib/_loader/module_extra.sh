@@ -40,11 +40,15 @@ ldr_mod_app_name() {
     sys_info "\n\t App : " "[${WARNING}$0${INFO}]"
 }
 
+ldr_mod_lib_path() {
+    sys_info "\n\t Lib : " "[${WARNING}$LIBPATH${INFO}]"
+}
 
 moduleInfo() {
     ldr_mod_verbose
 
     ldr_mod_app_name
+    ldr_mod_lib_path
     ldr_mod_list 
     ldr_mod_disabled_list
     ldr_mod_list_functions
