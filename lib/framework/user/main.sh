@@ -13,7 +13,7 @@ start() {
 
   [[ $(type -t layout_welcome) ]] && layout_welcome
 
-  [[ $(type -t run) ]] && run
+  [[ $(type -t run) ]] && run $@
 
   [[ $(type -t finish) ]] && finish 
 
