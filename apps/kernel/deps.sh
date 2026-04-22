@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 source ${LIBPATH}/_loader.sh
 
@@ -32,6 +32,7 @@ run() {
       libdw-dev \
       debhelper-compat
 }
+
 
 loader_manager
 start $@

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 source ${LIBPATH}/_loader.sh
 
@@ -12,6 +12,7 @@ loader_manager() {
 
 
 begin() {
+    app_setAuthor       "JULIAN VIDAL A"
     app_setTitle        "Kernel Compiler"
 
     peval_theme_vision
@@ -22,6 +23,7 @@ begin() {
 run() {
   make_main $@
 }
+
 
 loader_manager
 start $@
