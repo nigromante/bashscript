@@ -137,6 +137,15 @@ make_all() {
 }
 
 
+make_download() {
+    make_getinfo
+    make_show_info
+    make_download
+    make_go_sources
+    make_get_config
+}
+
+
 make_repair() {
     make_getinfo_local
     make_show_info

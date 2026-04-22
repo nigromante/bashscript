@@ -12,9 +12,7 @@ loader_manager() {
 
 
 begin() {
-    app_setAuthor       "JULIAN VIDAL A"
-    app_setTitle        "Kernel"
-    app_setDescription  " --- REPAIR KERNEL --- "
+    app_setTitle        "Kernel Compiler"
 
     peval_theme_vision
     peval_mode_debug
@@ -22,11 +20,8 @@ begin() {
 
 
 run() {
-    make_env $1
-    make_repair
+  make_main $@
 }
-
-
 
 loader_manager
 start $@

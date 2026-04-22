@@ -12,9 +12,7 @@ loader_manager() {
 
 
 begin() {
-    app_setAuthor       "JULIAN VIDAL A"
-    app_setTitle        "Kernel INFO"
-    app_setDescription  " --- INFO KERNEL --- "
+    app_setTitle        "Kernel Dependencies"
 
     peval_theme_vision
     peval_mode_debug
@@ -22,11 +20,18 @@ begin() {
 
 
 run() {
-    make_env $1
-    make_info
+    sudo apt update
+    
+    sudo apt install \
+      build-essential \
+      libncurses-dev \
+      flex \
+      bison \
+      libssl-dev \
+      libelf-dev \
+      libdw-dev \
+      debhelper-compat
 }
-
-
 
 loader_manager
 start $@
