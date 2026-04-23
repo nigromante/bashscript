@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-TMP_PATH="."
+TMP_PATH="$( pwd )"
 
 make_set_tmp() {
   TMP_PATH="$1"
@@ -16,8 +16,8 @@ make_env() {
     [[ "$1" == "7" ]] &&  FILTER="linux-${VERSION_BASE}\.[0-9]*\.tar\.xz" ||  FILTER="linux-${VERSION_BASE}\.[0-9]*\.[0-9]*\.tar\.xz"
     # FILTER="linux-${VERSION_BASE}\.[0-9]*\.[0-9]*\.tar\.xz"
     URL="https://www.kernel.org/pub/linux/kernel/${VERSION}"
-    workpath=$(realpath "$0")
-    workpath=$(dirname "$workpath")
+    script_path=$( realpath "$0" )
+    script_path=$( dirname "$script_path" )
 }
 
 
@@ -28,7 +28,8 @@ make_getinfo() {
 
 
 make_getinfo_local() {
-    LATEST="$( wget -qO- ${URL}/ | grep -o ${FILTER} | sort -V | tail -1 )"
+    LATEST="$( ls -ad ./sources/linux-* | sort -V | grep "\-${VERSION_BASE}." | tail -1 )"
+    LATEST="$( basename "$LATEST" )"
     folder=$( echo "${LATEST/.tar.xz/}"  )
 }
 
@@ -50,16 +51,18 @@ make_show_info() {
     xecho "Base version        " $VERSION " ( ${FILTER} )"
     xecho "Latest Linux source " $LATEST
     xecho "Linux folder        " $folder
-    xecho "Scripts folder      " $workpath
+    xecho "Scripts folder      " $script_path
     xecho "Processors          " $( nproc )
-    xecho "Work folder         " $(pwd) 
+    xecho "Work folder         " $TMP_PATH
+    xecho "Download folder     " $DLOAD_PATH
+    xecho "Sources folder      " $SOURCES_PATH
 }
 
 
-make_download() {
-
-    [[ ! -e "${DLOAD_PATH}/$latest" ]]   &&  wget -P ${DLOAD_PATH} ${URL}/${latest}
-    [[ ! -e "${SOURCES_PATH}" ]] &&  tar -xvf "${DLOAD_PATH}/$latest" -C ${SOURCES_PATH}
+make_download_sources() {
+echo " **** : ${DLOAD_PATH}/$LATEST : *****" 
+    [[ ! -e "${DLOAD_PATH}/$LATEST" ]]   &&  peval wget -P ${DLOAD_PATH} ${URL}/${LATEST}
+    [[ ! -e "${SOURCES_PATH}/$folder" ]] &&  tar -xvf "${DLOAD_PATH}/$LATEST" -C ${SOURCES_PATH}
 }
 
 
@@ -101,6 +104,8 @@ make_build() {
 
 
 make_install() {
+    cd ..
+    
     ### Install
     # sudo make modules_install
     # sudo make install
@@ -110,8 +115,7 @@ make_install() {
 
 make_post_install() {
     ### Update grub
-    # sudo update-grub
-    echo ""
+    sudo update-grub
 }
 
 
@@ -126,7 +130,7 @@ make_info() {
 make_all() {
     make_getinfo
     make_show_info
-    make_download
+    make_download_sources
     make_go_sources
     make_get_config
     make_config
@@ -140,7 +144,7 @@ make_all() {
 make_download() {
     make_getinfo
     make_show_info
-    make_download
+    make_download_sources
     make_go_sources
     make_get_config
 }

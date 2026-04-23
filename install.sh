@@ -2,7 +2,7 @@
 
 figlet "ezbash - install"
 
-cat ~/work/bashscript/launch/aliases.sh >> ~/.dotfiles/aliases.sh
+# cat ~/work/bashscript/launch/aliases.sh >> ~/.dotfiles/aliases.sh
 
 [[ -d "~/.local/share/bin/apps" ]]   && mkdir -p ~/.local/share/bin/apps
 [[ -d "~/.local/share/lib/ezbash" ]] && mkdir -p ~/.local/share/lib/ezbash

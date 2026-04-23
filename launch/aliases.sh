@@ -4,6 +4,6 @@ alias ezrun='~/.local/share/bin/ezbashrun.sh'
 alias ezsrun='sudo ~/.local/share/bin/ezbashrun.sh'
 
 # bash framework debug
-alias ezdbg='~/.local/share/bin/ezbashdbg.sh'
-alias ezsdbg='sudo ~/.local/share/bin/ezbashdbg.sh'
+alias ezdbg='~/work/bashscript/launch/ezbashdbg.sh'
+alias ezsdbg='sudo ~/work/bashscript/launch/ezbashdbg.sh'
 
