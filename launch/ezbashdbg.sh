@@ -8,10 +8,13 @@ export LIBPATH="$LIBPATH"
 APPS_PATH="${INSTALL_PATH}/apps"
 
 
-file="${APPS_PATH}/$1"
+chk=$( basename $1 )
+
+[[ "$1" == "$chk" ]] && file="$1/$1.sh" ||  file="$1"
+
+file="${APPS_PATH}/$file"
 
 shift
 
 eval bash "$file" "$@"
-
 
