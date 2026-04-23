@@ -13,8 +13,8 @@ make_env() {
     SOURCES_PATH="${TMP_PATH}/sources"
     VERSION_BASE="$1"
     VERSION="v${VERSION_BASE}.x"
-    [[ "$1" == "7" ]] &&  FILTER="linux-${VERSION_BASE}\.[0-9]*\.tar\.xz" ||  FILTER="linux-${VERSION_BASE}\.[0-9]*\.[0-9]*\.tar\.xz"
-    # FILTER="linux-${VERSION_BASE}\.[0-9]*\.[0-9]*\.tar\.xz"
+    #[[ "$1" == "7" ]] &&  FILTER="linux-${VERSION_BASE}\.[0-9]*\.tar\.xz" ||  FILTER="linux-${VERSION_BASE}\.[0-9]*\.[0-9]*\.tar\.xz"
+    FILTER="linux-${VERSION_BASE}\.[0-9]*\.[0-9]*\.tar\.xz"
     URL="https://www.kernel.org/pub/linux/kernel/${VERSION}"
     script_path=$( realpath "$0" )
     script_path=$( dirname "$script_path" )
@@ -151,7 +151,7 @@ make_download() {
 
 
 make_repair() {
-    make_getinfo_local
+    make_getinfo
     make_show_info
     make_go_sources
     make_config
