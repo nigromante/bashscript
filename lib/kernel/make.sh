@@ -60,16 +60,17 @@ make_show_info() {
 
 
 make_download_sources() {
-echo " **** : ${DLOAD_PATH}/$LATEST : *****" 
+    [[ ! -e "${SOURCES_PATH}/linux-${VERSION}" ]] && mkdir -p ${SOURCES_PATH}/linux-${VERSION}
+
     [[ ! -e "${DLOAD_PATH}/$LATEST" ]]   &&  peval wget -P ${DLOAD_PATH} ${URL}/${LATEST}
-    [[ ! -e "${SOURCES_PATH}/$folder" ]] &&  tar -xvf "${DLOAD_PATH}/$LATEST" -C ${SOURCES_PATH}
+    [[ ! -e "${SOURCES_PATH}/linux-${VERSION}/$folder" ]] &&  tar -xvf "${DLOAD_PATH}/$LATEST" -C ${SOURCES_PATH}/linux-${VERSION}
 }
 
 
 make_go_sources() {
-    cd "${SOURCES_PATH}/${folder}" 
+    cd "${SOURCES_PATH}/linux-${VERSION}/$folder" 
     xecho "Linux folder        " $(pwd) 
-    echo
+    xecho
 }
 
 
@@ -109,7 +110,6 @@ make_install() {
     ### Install
     # sudo make modules_install
     # sudo make install
-    echo ""
 }
 
 
