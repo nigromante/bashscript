@@ -9,6 +9,7 @@ loader_manager() {
     ldr_insmod utils
 }
 
+
 help() {
   cat << EOF
   --------------------------------
@@ -28,6 +29,7 @@ help() {
 EOF
 }
 
+
 run() {
     if [[ $# -lt 2 ]]; then
       help
@@ -39,7 +41,6 @@ run() {
 
     ssh_RTunnelOutside $user $port
 }
-
 
 
 loader_manager

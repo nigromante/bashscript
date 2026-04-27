@@ -37,9 +37,8 @@ run() {
     user=$1
     port=$2
 
-    peval ssh_LTunnelConn $user $port
+    ssh_LTunnelConn $user $port
 }
-
 
 
 loader_manager

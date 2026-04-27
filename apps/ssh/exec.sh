@@ -15,9 +15,8 @@ run() {
     server=$2
     cmd="$3"
 
-    peval ssh_Exec  "${user}@${server}" "${cmd}"
+    ssh_Exec  "${user}@${server}" "${cmd}"
 }
-
 
 
 loader_manager

@@ -39,9 +39,8 @@ run() {
     user=$3
     server=$4
 
-    peval ssh_LTunnel ${port} ${target}:22  "${user}@${server}"
+    ssh_LTunnel ${port} ${target}:22  "${user}@${server}"
 }
-
 
 
 loader_manager

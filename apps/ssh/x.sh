@@ -13,9 +13,8 @@ loader_manager() {
 run() {
     user=$1
     server=$2
-    peval ssh_X  "${user}@${server}"
+    ssh_X  "${user}@${server}"
 }
-
 
 
 loader_manager

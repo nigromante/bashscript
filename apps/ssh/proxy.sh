@@ -15,9 +15,8 @@ run() {
     server=$2
     port=$3
 
-    peval ssh_DProxy "${user}@${server}" ${port}
+    ssh_DProxy "${user}@${server}" ${port}
 }
-
 
 
 loader_manager
