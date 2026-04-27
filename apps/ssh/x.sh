@@ -10,9 +10,35 @@ loader_manager() {
 }
 
 
+help() {
+  cat << EOF
+  --------------------------------
+     SSH / x
+  --------------------------------
+
+  usage:
+      ezdbg  ssh/x.sh user server
+
+  parameters:
+      user 
+      server 
+
+  remarks:
+      this 
+
+EOF
+}
+
+
 run() {
+    if [[ $# -lt 2 ]]; then
+      help
+      return
+    fi
+
     user=$1
     server=$2
+
     ssh_X  "${user}@${server}"
 }
 

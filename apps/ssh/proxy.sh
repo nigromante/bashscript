@@ -10,7 +10,33 @@ loader_manager() {
 }
 
 
+help() {
+  cat << EOF
+  --------------------------------
+     SSH / proxy
+  --------------------------------
+
+  usage:
+      ezdbg  ssh/proxy.sh user server port
+
+  parameters:
+      user 
+      server 
+      port  
+
+  remarks:
+      this 
+
+EOF
+}
+
+
 run() {
+    if [[ $# -lt 3 ]]; then
+      help
+      return
+    fi
+
     user=$1
     server=$2
     port=$3
