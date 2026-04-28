@@ -1,10 +1,5 @@
 #!/bin/bash
 
-## Usage:
-#
-#       sudo ../../launch/run.sh ./run.sh  -f ../../tmp/debian.qcow2
-#
-
 source ${LIBPATH}/_loader.sh
 
 
@@ -20,10 +15,12 @@ loader_manager() {
 run_usage() {
 	cat - <<EOF
 
-	Usage: ezsdbg  qemu/run.sh [h] [-w workdir] [-f file]
+	Usage: ezsdbg  qemu/run.sh [-h] [-w workdir] [-f file]
 
-  -f file:    filename for the image, without extension. Defaults ( uname -n )
-  -w workdir: Folder where images lies. Defaults ( . )
+  arguments:
+      -h          : Help
+      -f file     : Filename for the image, without extension. Defaults ( uname -n )
+      -w workdir  : Folder where images lies. Defaults ( . )
 
 EOF
 }

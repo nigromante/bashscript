@@ -1,7 +1,5 @@
 #!/bin/bash
 
-ldr_insfile_local prepare.sh
-
 ldr_insfile_local nbd.sh
 ldr_insfile_local hdd.sh
 ldr_insfile_local chroot.sh
