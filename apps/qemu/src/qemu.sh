@@ -37,7 +37,7 @@ qemu_nbd_umount() {
 
 qemu_run() {
 
-    VM="${WORKDIR}/${FULLNAME}"
+    VM="${WORKDIR}/${FILE}"
 
     if ! test -e "$VM.varstore"; then
       peval  cp /usr/share/OVMF/OVMF_VARS_4M.fd "$VM.varstore"

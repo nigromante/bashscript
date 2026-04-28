@@ -41,17 +41,18 @@ usage() {
 			taken from this host's 'hostname -d')
 	name:      hostname to configure the image to, defaults to debian-<suite>
 EOF
+exit 0
 }
 
 
 proc_args() {
-	while getopts ":hSDMs:f:z:r:d:" opt;
+	while getopts ":hSDMs:f:z:r:d:w:" opt;
 	do
 		case $opt in
 			h )
 				usage
 				exit 0
-				;;
+				;; 
 			\? )
 				usage
 				exit 0
@@ -59,6 +60,9 @@ proc_args() {
 			s )
 				SUITE="$OPTARG"
 				;;
+      w )
+        WORKDIR="$OPTARG"
+        ;;
 			f )
 				FILE="$OPTARG"
 				;;

@@ -17,12 +17,57 @@ loader_manager() {
 }
 
 
+run_usage() {
+	cat - <<EOF
+
+	Usage: ezsdbg  qemu/run.sh [h] [-w workdir] [-f file]
+
+  -f file:    filename for the image, without extension. Defaults ( uname -n )
+  -w workdir: Folder where images lies. Defaults ( . )
+
+EOF
+}
+
+
+run_proc_args() {
+	while getopts "f:w:h" opt;
+	do
+		case $opt in
+			h )
+				run_usage
+				exit 0
+				;; 
+      w )
+        WORKDIR="$OPTARG"
+        ;;
+			f )
+				FILE="$OPTARG"
+				;;
+			* )
+				run_usage
+				exit 1
+				;;
+		esac
+	done
+
+  NAME="$( uname -n )"
+	[[ -z $FILE ]] && FILE="$NAME"
+	[[ -z $WORKDIR ]] && WORKDIR="."
+}
+
+
+resume_values() {
+    echo "file                 : $FILE" 
+    echo "work dir             : $WORKDIR"
+}
+
+
 begin() {
     app_setAuthor       "JULIAN VIDAL A"
     app_setTitle        "Debian VM debootstrap"
     app_setDescription  " --- RUN DEBIAN IMAGE --- "
 
-    proc_args $@
+    run_proc_args $@
 
     peval_theme_vision
     peval_mode_debug
@@ -34,19 +79,6 @@ run() {
     qemu_run
 }
 
-resume_values() {
-    echo "size                 : $SIZE" 
-    echo "hostname             : $NAME"
-    echo "file                 : $FILE" 
-    echo "suite                : $SUITE"
-    echo "host name            : $DOMAIN_NAME"
-    echo "swap size            : $SWAP_SIZE"
-    echo "root password        : $ROOT_PASSWD"
-    echo "debootstrap          : $SKIP_DEBOOTSTRAP"
-    echo "run install scripts  : $SKIP_STAGE2"
-    echo "umount               : $SKIP_UNMOUNT"
-    echo "fullname             : $FULLNAME"
-}
 
 loader_manager
 start $@
