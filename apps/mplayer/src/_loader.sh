@@ -1,3 +1,3 @@
 #!/bin/bash
 
-ldr_insfile mplayer_entry.sh
+ldr_insfile_local mplayer_entry.sh
