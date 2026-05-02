@@ -72,11 +72,14 @@ begin() {
 
 
 run() {
-    resume_values
-    qemu_run
+    #resume_values
+    
+   moduleInfo
+   qemu_run
 }
 
 
 loader_manager
+
 start $@
 

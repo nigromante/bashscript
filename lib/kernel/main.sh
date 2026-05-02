@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
 
 
+default_base_kernel="6"
+default_action="help"
+
+
 make_main() {
-    default_base_kernel="6"
-    default_action="help"
 
     [[ "$1" != "" ]]  && action="$1" || action="$default_action"
     [[ "$2" != "" ]]  && base="$2"   || base="$default_base_kernel"
@@ -61,11 +63,14 @@ kernel_help(){
 
     Examples:
 
-      ezsdbg kernel/kernel.sh info 7
+      ezsdbg kernel info 7
 
-      ezsdbg kernel/kernel.sh create 7
-      
-      ezsdbg kernel/kernel.sh repair 7
+      ezsdbg kernel full 7
+     
+
+      ezsdbg kernel download 7
+
+      ezsdbg kernel repair 7
 
 EOF
 }

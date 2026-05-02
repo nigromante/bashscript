@@ -1,13 +1,14 @@
 #!/usr/bin/env bash
 
+
 qemu_create_image() {
-    # Create image file, unless reusing an existing one
+    VM="${WORKDIR}/${FILE}.qcow2"
     if [[ -z "$SKIP_DEBOOTSTRAP" ]]
     then
 	    echo "Creating image"
-        peval qemu-img create -f qcow2 $FILE $SIZE
+        peval qemu-img create -f qcow2 $VM $SIZE
     else
-	    if ! [[ -f $FILE ]]
+	    if ! [[ -f $WM ]]
 	    then
 		    echo "Cannot skip debootstrap if the image does not exist." >&2
 		    exit 1
@@ -15,9 +16,11 @@ qemu_create_image() {
     fi
 }
 
+
 qemu_nbd_mount() {
+    VM="${WORKDIR}/${FILE}.qcow2"
     echo "Mounting image on $NBD_DEV"
-    peval qemu-nbd -c $NBD_DEV $FILE
+    peval qemu-nbd -c $NBD_DEV $VM
 }
 
 
@@ -59,10 +62,9 @@ qemu_run() {
       -drive id=disk,if=none,format=qcow2,file="$VM.qcow2"  \
       -device ide-hd,bus=ide.0,unit=0,drive=disk,bootindex=1 
       
-      #\
+      #
       #-net nic,model=virtio -net user \
       #-netdev bridge,id=hn1,br=br0 \
       #-device virtio-net,netdev=hn1,mac=e6:c8:ff:09:76:99 
-
-
 }
+

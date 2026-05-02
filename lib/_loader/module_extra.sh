@@ -45,13 +45,15 @@ ldr_mod_lib_path() {
 }
 
 moduleInfo() {
+    
     ldr_mod_verbose
 
     ldr_mod_app_name
     ldr_mod_lib_path
     ldr_mod_list 
     ldr_mod_disabled_list
-    ldr_mod_list_functions
+
+    ldr_mod_list_functions | grep qemu 
 
     ldr_mod_silent
 }

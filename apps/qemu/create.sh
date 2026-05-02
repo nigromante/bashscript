@@ -124,7 +124,9 @@ proc_args() {
 
 	[[ -z $FULLNAME ]] && FULLNAME="${NAME}_${DOMAIN_NAME}"
 
-	[[ -z $WORKDIR ]] && WORKDIR="../../tmp"
+	[[ -z $WORKDIR ]] && WORKDIR="."
+
+  VM="${WORKDIR}/${FULLNAME}.qcow2"
 }
 
 
@@ -139,6 +141,7 @@ resume_values() {
     echo "debootstrap          : $SKIP_DEBOOTSTRAP"
     echo "run install scripts  : $SKIP_STAGE2"
     echo "umount               : $SKIP_UNMOUNT"
+    echo "VM                   : $VM"
 }
 
 
@@ -160,7 +163,7 @@ Stage1() {
   qemu_nbd_mount
   hdd_read_UUID
   chroot_mount
-  debootrap_run
+  debootrap_debian
   chroot_mount_system
 }
 

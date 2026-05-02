@@ -47,6 +47,7 @@ umount_proc_args() {
 		esac
 	done
 
+	NBD_DEV=/dev/nbd0 # NBD device for connecting image
   NAME="$( uname -n )"
 	[[ -z $FILE ]] && FILE="$NAME"
 	[[ -z $WORKDIR ]] && WORKDIR="."
