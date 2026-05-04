@@ -29,7 +29,7 @@ mplayer_play_easycap() {
 capture_video() {
 
 	  _date=$(date +"%Y-%m-%d_%H:%M:%S")
-    _device="/dev/video2"
+    _device="/dev/video$1"
     _time="10:00"
     _file="~/Vídeos/Camera/$_date.mkv"
 

@@ -23,7 +23,7 @@ begin() {
 
 run() {
 
-  capture_video
+  capture_video $@
 
 }
 
